@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <location path ="modules/mbme/" />
+  <!--<defaultbackground path ="images/bgMBME.jpg" />-->
+  <defaultbackground path ="images/bgMBME.jpg" />
+  <defaultshell path = "pages/MBMEShell.xaml" />
+  <!--<defaultstyledictionary path ="resources/rdMBME.xaml" />-->
+  <messagetimeout seconds="5" />
+  <idletimeout seconds="30" />
+
+  <styleoptions>
+     <style key="common" path="resources/rdMBME.xaml" default="true" />
+  </styleoptions>
+    
+  <languageoptions>
+    <language key="english" path="resources/rdMBMEEnglish.xaml" default="true"/>
+    <language key="arabic" path="resources/rdMBMEArabic.xaml" />
+    <!--<language key="en" path="resources/rdMBMEEnglish.xaml" default="true"/>
+    <language key="ar=AE" path="resources/rdMBMEArabic.xaml" />-->
+  </languageoptions>
+
+<states>
+  <!--<state Title ="Inactive" file="" >
+    <actions>
+      <action name="Start" acquiredstate="LanguageSelection" />
+    </actions> 
+  </state>-->
+  
+  <!-- State: ModuleSelection-->
+  <state name = "ModuleSelection" file ="pages/ModuleSelectionPage.xaml" default="true" timeout="0">
+    <view name ="MBMEKiosk.MBME.Presenters.ModuleSelectionPresenter" />
+    <actions>
+      <action name="charitycategory" acquiredstate="CharityState"/>
+      <action name="fewa" acquiredstate="FewaModule" switchmodule="true" />
+      <action name="sewa" acquiredstate="SewaModule" switchmodule="true" />
+      <action name="du" acquiredstate="DUModule" switchmodule="true" />
+      <action name="adpc" acquiredstate="AdpcModule" switchmodule="true" />
+      <action name="et" acquiredstate="EzetopModule" switchmodule="true" />
+      <action name="salik" acquiredstate="SalikModule" switchmodule="true" />
+      <action name="mawaqif" acquiredstate="MawaqifModule" switchmodule="true" />
+      <action name="flydubai" acquiredstate="FlyDubaiModule" switchmodule="true" />
+      <action name="uaeex" acquiredstate="UAEExchangeModule" switchmodule="true" />
+      <action name="admin" acquiredstate="AdminModule" switchmodule="true" />
+      <action name="error" acquiredstate="InitError" />
+      <action name="admin" acquiredstate="AdminModule" switchmodule="true" />
+      <action name="awqaf" acquiredstate="AwqafModule" switchmodule="true" />
+      <action name="maf" acquiredstate="MafModule" switchmodule="true" />
+      <action name="dbpolice" acquiredstate="none" switchmodule="true" />
+      <action name="ajman" acquiredstate="AjmanSewerageModule" switchmodule="true" />
+      <action name="etisalat" acquiredstate="EtisalatModule" switchmodule="true" />
+      <action name="redcr" acquiredstate="RedCrescentModule" switchmodule="true" />
+      <action name="duprepaid" acquiredstate="DUPrepaidModule" switchmodule="true" />
+      <action name="moremagic" acquiredstate="MoreMagicModule" switchmodule="true" />
+      <action name="mnc" acquiredstate="MafMyNetModule" switchmodule="true" />
+      <action name="wallstreet" acquiredstate="WallStreetExchangeModule" switchmodule="true" />
+      <action name="groupon" acquiredstate="GroupOnModule" switchmodule="true" />
+      <action name="lmsm" acquiredstate="LMSModule" switchmodule="true" />
+      <action name="lms" acquiredstate="LMSModule" switchmodule="true" />
+      <action name="transcash" acquiredstate="TranscashModuleNI" switchmodule="true" />
+      <action name="unionins" acquiredstate="UnionModule" switchmodule="true" />
+      <action name="aadc" acquiredstate="AadcModule" switchmodule="true" />
+      <action name="adpc" acquiredstate="AdpcModule" switchmodule="true" />
+      <action name="ajman" acquiredstate="AjmanSewerageModule" switchmodule="true" />
+      <action name="etisalatezeepay" acquiredstate="EtisalateZeepayModule" switchmodule="true" />
+      <action name="dubaicharity" acquiredstate="DubaiCharityModule" switchmodule="true" />
+      <action name="ista" acquiredstate="IstaModule" switchmodule="true" />
+      <action name="adtfp" acquiredstate="AbuDhabiFinePaymentModule" switchmodule="true" />
+      <action name="sharjmncp" acquiredstate="SharjahmuniModule" switchmodule="true" />
+      <action name="wu" acquiredstate="WUModule" switchmodule="true" />
+      <action name="airarabia" acquiredstate="AirArabiaModule" switchmodule="true" />
+    </actions>
+  </state>
+
+  <!-- State: InitError -->
+  <state name ="CharityState" file ="pages/ModuleSelectionCategoryPage.xaml" timeout="30">
+    <view name ="MBMEKiosk.MBME.Presenters.ModuleSelectionPresenter" />
+    <actions>
+      <action name="back" acquiredstate="ModuleSelection" />
+      <action name="awqaf" acquiredstate="AwqafModule" switchmodule="true" />
+      <action name="redcr" acquiredstate="RedCrescentModule" switchmodule="true" />
+      <action name="noble" acquiredstate="NobleQuranModule" switchmodule="true" />
+      <action name="zakat" acquiredstate="ZakatModule" switchmodule="true" />
+      <action name="daralber" acquiredstate="DarAlBerModule" switchmodule="true" />
+      <action name="beitalkhair" acquiredstate="BeitAlKhairModule" switchmodule="true" />
+      <action name="sharjahint" acquiredstate="SharjahIntModule" switchmodule="true" />
+      <action name="awqafad" acquiredstate="AwqafAdModules" switchmodule="true" />
+    </actions>
+  </state>
+  
+  <!-- State: InitError -->
+  <state name ="InitError" file ="pages/ErrorAndMessages.xaml" timeout="5">
+    <view name ="MBMEKiosk.MBME.Presenters.ErrorAndMessagesPresenter" />
+    <actions>
+      <action name="submit" acquiredstate = "ModuleSelection" />
+    </actions>
+  </state>
+  
+</states>
+</config>
+

@@ -1,0 +1,219 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:System;assembly=mscorlib"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        x:Name="LayoutRoot"
+        Width="227"
+        Height="500">
+
+    <Grid.Resources>
+     <!--<inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />-->
+	 
+       <FontFamily x:Key="WS_Body_SmallText_Font">/WallStreet_KioskApp_New;component/Fonts/#Helvetica Neue LT Std</FontFamily>
+
+        <Style x:Key="WS_TextStyle1"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource WS_Body_SmallText_Font}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="FontSize"
+                    Value="10" />
+			 <Setter Property="TextAlignment"
+                    Value="Center"/>		
+        </Style>
+		
+		<Style x:Key="WS_TextStyle2"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource WS_Body_SmallText_Font}" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="10" />
+			 <Setter Property="TextAlignment"
+                    Value="Right"/>		
+        </Style>
+		<Style x:Key="WS_TextStyle3"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource WS_Body_SmallText_Font}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="FontSize"
+                    Value="8" />
+			 <Setter Property="TextAlignment"
+                    Value="Center"/>		
+        </Style>
+
+        <!--Receipt Text-->
+		<my:String x:Key="WS_Receipt_Text_ReceiptNo">Receipt No.</my:String>
+        <my:String x:Key="WS_Receipt_Text_Date">Date</my:String>
+		<my:String x:Key="WS_Receipt_Text_Time">Time</my:String>
+		<my:String x:Key="WS_Receipt_Text_RemittanceDetails">Remittance Details :</my:String>
+		<my:String x:Key="WS_Receipt_Text_TransactionNumber">Transaction Number</my:String>
+		 <my:String x:Key="WS_Receipt_Text_SenderName">Sender Name</my:String>
+		<my:String x:Key="WS_Receipt_Text_GoldCard">Gold Card number</my:String>
+		<my:String x:Key="WS_Receipt_Text_BeneficiaryName">Beneficiary Name</my:String>
+        <my:String x:Key="WS_Receipt_Text_BeneficiaryBank">Beneficiary Bank</my:String>
+		<my:String x:Key="WS_Receipt_Text_BankAddress">Bank Address</my:String>
+		<my:String x:Key="WS_Receipt_Text_A/C">A/C No</my:String>
+		<my:String x:Key="WS_Receipt_Text_DeliveryMode">Delivery Mode</my:String>
+		<my:String x:Key="WS_Receipt_Text_PaidAmount">Paid Amount</my:String>
+		<my:String x:Key="WS_Receipt_Text_Aed">AED</my:String>
+		<my:String x:Key="WS_Receipt_Text_ServiceCharges">Service Charges</my:String>
+        <my:String x:Key="WS_Receipt_Text_RemittedAmount">Remitted amount</my:String>
+        <my:String x:Key="WS_Receipt_Text_ReceivingAmount">Receiving amount</my:String>
+		<my:String x:Key="WS_Receipt_Text_Note">Note : “Inform beneficiary the PIN number is</my:String>
+		<my:String x:Key="WS_Receipt_Text_KioskIDLocation">Kiosk ID / Location</my:String>
+		<my:String xml:space="preserve"
+                   x:Key="WS_Receipt_Text_04 2269871">04 2269871&#x0a; www.wallstreet.ae</my:String>
+        <my:String xml:space="preserve"
+                   x:Key="WS_Receipt_Text_Attention">Attention !&#x0a;Please retain this slip for future reference or Claim.</my:String>
+        <my:String xml:space="preserve"
+                   x:Key="WS_Receipt_Text_WallStreet">Wall Street Exchange terms &amp; Conditions accepted</my:String>
+		        
+    </Grid.Resources>
+
+    <Rectangle Fill="White"
+               Width="227"
+               Height="500"
+               VerticalAlignment="Center"
+               d:LayoutOverrides="Width, Height"
+               HorizontalAlignment="Center" />
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto">
+    	<Image Source="pack://siteoforigin:,,,/Modules/wallstreet/images/WallStreet_ReceiptLogo.png" Stretch="Fill" Height="44.801" VerticalAlignment="Top" HorizontalAlignment="Center" Width="157" Margin="0,5"/>
+    	<Path Data="M24,104 L213.66879,104" Height="1" Stretch="Fill" Stroke="Black" Width="220" HorizontalAlignment="Center"/>
+    	<Grid HorizontalAlignment="Center" Height="34.5" Margin="0,10" Width="210" >
+    		<Grid Margin="0" Width="52.24" HorizontalAlignment="Left">
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_ReceiptNo}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" VerticalAlignment="Top"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_Date}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0,11.5" d:LayoutOverrides="HorizontalAlignment, Height"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_Time}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+    		</Grid>
+    		<Grid Margin="95.24,0,0,0" Width="2.777" HorizontalAlignment="Left">
+    			<TextBlock HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" Text=":" VerticalAlignment="Top"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0,11.5" Text=":" d:LayoutOverrides="Height"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text=":" VerticalAlignment="Bottom"/>
+    		</Grid>
+    		<Grid Margin="103.017,0,0,0" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment">
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="{Binding Transaction.WSRefNum}" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0,11.5" Text="{Binding Transaction.TransactionTime, StringFormat=\{0:dd/MM/yyyy\}}" d:LayoutOverrides="HorizontalAlignment, Height"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text="{Binding Transaction.TransactionTime, StringFormat=\{0:HH.mm.ss\}}" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment"/>
+    		</Grid>
+    	</Grid>
+    	<Path Data="M24,104 L213.66879,104" Height="1" Stretch="Fill" Stroke="Black" Width="220" HorizontalAlignment="Center"/>
+    	<TextBlock TextWrapping="Wrap" Text="{DynamicResource WS_Receipt_Text_RemittanceDetails}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" Margin="0,10,0,0"/>
+    	<Grid HorizontalAlignment="Center" Margin="0,5,0,10" Width="210" >
+    		<StackPanel HorizontalAlignment="Left" Margin="0" Width="90.207">
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_TransactionNumber}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_SenderName}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_GoldCard}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_BeneficiaryName}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_BeneficiaryBank}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_BankAddress}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_A/C}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_DeliveryMode}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_PaidAmount}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_ServiceCharges}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_RemittedAmount}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_ReceivingAmount}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0"/>
+    		</StackPanel>
+    		<StackPanel HorizontalAlignment="Left" Margin="95.207,0,0,0" Width="2.776" >
+    			<TextBlock HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text=":"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="0" Text=":"/>
+    		</StackPanel>
+    		<StackPanel HorizontalAlignment="Left" Margin="102.984,0,0,0" >
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="12336633223"/>
+    			<TextBlock Style="{DynamicResource WS_TextStyle1}" Text="Mathews" HorizontalAlignment="Left"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="2022324536"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="Mr. Joseph"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="HDFC"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="Vashi, Mumbai"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="256665666"/>
+    			<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Text="----"/>
+    			<Grid HorizontalAlignment="Left">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="Auto" MinWidth="19.098"/>
+    					<ColumnDefinition Width="5"/>
+    					<ColumnDefinition Width="Auto" MinWidth="2.25"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0,0,-0.532,0" Text="{DynamicResource WS_Receipt_Text_Aed}" VerticalAlignment="Top" d:LayoutOverrides="Width, GridBox" HorizontalAlignment="Left"/>
+    				<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="2.25,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Grid.Column="2" Text="200"/>
+    			</Grid>
+    			<Grid HorizontalAlignment="Left">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="Auto" MinWidth="19.098"/>
+    					<ColumnDefinition Width="5"/>
+    					<ColumnDefinition Width="Auto" MinWidth="2.25"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0,0,-0.532,0" Text="{DynamicResource WS_Receipt_Text_Aed}" VerticalAlignment="Top" d:LayoutOverrides="Width, GridBox" HorizontalAlignment="Left"/>
+    				<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="2.25,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Grid.Column="2" Text="10"/>
+    			</Grid>
+    			<Grid HorizontalAlignment="Left">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="Auto" MinWidth="19.098"/>
+    					<ColumnDefinition Width="5"/>
+    					<ColumnDefinition Width="Auto" MinWidth="2.25"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0,0,-0.532,0" Text="{DynamicResource WS_Receipt_Text_Aed}" VerticalAlignment="Top" d:LayoutOverrides="Width, GridBox" HorizontalAlignment="Left"/>
+    				<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="2.25,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Grid.Column="2" Text="190"/>
+    			</Grid>
+    			<Grid HorizontalAlignment="Left">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="Auto" MinWidth="19.098"/>
+    					<ColumnDefinition Width="5"/>
+    					<ColumnDefinition Width="Auto" MinWidth="2.25"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0,0,-0.532,0" VerticalAlignment="Top" d:LayoutOverrides="Width, GridBox" HorizontalAlignment="Left" Text="INR"/>
+    				<TextBlock HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" Margin="2.25,0,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Grid.Column="2" Text="2745"/>
+    			</Grid>
+    		</StackPanel>
+    	</Grid>
+    	<TextBlock Text="{DynamicResource WS_Receipt_Text_Note}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" Margin="0,10"/>
+    	<Path Data="M24,104 L213.66879,104" Height="1" Stretch="Fill" Stroke="Black" Width="220" HorizontalAlignment="Center"/>
+    	<Grid HorizontalAlignment="Center" Height="11.5" Margin="0,10">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto" MinWidth="83.36"/>
+    			<ColumnDefinition Width="2"/>
+    			<ColumnDefinition Width="Auto" MinWidth="2"/>
+    		</Grid.ColumnDefinitions>
+    		
+    		<TextBlock Text="{DynamicResource WS_Receipt_Text_KioskIDLocation}" HorizontalAlignment="Left" Style="{DynamicResource WS_TextStyle1}" d:LayoutOverrides="Height" Margin="0"/>
+    		<Grid HorizontalAlignment="Right" Grid.Column="2">
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="Auto"/>
+    				<ColumnDefinition Width="2"/>
+    				<ColumnDefinition Width="Auto"/>
+    			</Grid.ColumnDefinitions>
+    			<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0" d:LayoutOverrides="Height" Text="{Binding Transaction.MachineId}" HorizontalAlignment="Left"/>
+    			<TextBlock Style="{DynamicResource WS_TextStyle1}" Margin="0" Text="{Binding Transaction.MachineLocation}" d:LayoutOverrides="Height" HorizontalAlignment="Left" Grid.Column="2"/>
+    		</Grid>
+    	</Grid>
+    	<Path Data="M24,104 L213.66879,104" Height="1" Stretch="Fill" Stroke="Black" Width="220" HorizontalAlignment="Center"/>
+    	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10">
+    		<Grid Height="27.574" Width="83.85">
+    			<Image Margin="4.609,1.602,0,0" Source="/WallStreet_KioskApp_New;component/Images/PhoneIcon.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="8.891" Height="9.159" VerticalAlignment="Top"/>
+    			<TextBlock Text="{DynamicResource WS_Receipt_Text_04 2269871}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" d:LayoutOverrides="Height"/>
+    		</Grid>
+    		<Path Data="M134.935,6.6495 L134.935,22.6495" Height="26" Stretch="Fill" Width="1" Stroke="Black" Margin="15,0"/>
+    		<Image Source="/WallStreet_KioskApp_New;component/Images/ImageForReceipt.jpg" Stretch="Fill" Height="27.574" Width="91"/>
+    	</StackPanel>
+    	<Path Data="M24,104 L213.66879,104" Height="1" Stretch="Fill" Stroke="Black" Width="220" HorizontalAlignment="Center"/>
+    	<TextBlock Text="{DynamicResource WS_Receipt_Text_Attention}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle1}" Margin="0,10,0,0" FontStyle="Italic"/>
+    	<TextBlock Text="{DynamicResource WS_Receipt_Text_WallStreet}" HorizontalAlignment="Center" Style="{DynamicResource WS_TextStyle3}" Margin="0,10,0,0" />
+    </StackPanel>
+</Grid>

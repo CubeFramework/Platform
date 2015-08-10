@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+
+    <my:String x:Key="MBME_GeneralErrorMessage">We are sorry, there has been an error. Please try again.</my:String>
+
+    <!--Common-->
+	<!--<my:String x:Key="commonbtntext_mainmenu">القائمة الرئيسية</my:String>	
+  	<my:String x:Key="commonbtntext_back">باك</my:String>
+	<my:String x:Key="commonbtntext_textheader1">Bill Payment Screen</my:String>
+	<my:String x:Key="commonbtntext_textheader1_ar">بيل بيمنت سكرين</my:String>
+	<my:String x:Key="commonbtntext_textheader2">Fine Payment Screen</my:String>  	
+	<my:String x:Key="commonbtntext_textheader2_ar">فني بيمنت سكرين</my:String>-->	
+	  
+
+<!--Language selection screen-->
+	<!--<my:String x:Key="languagescreen_btnenglish">English</my:String>
+  	<my:String x:Key="languagescreen_btnarabic">العربية</my:String>
+	<my:String x:Key="languagescreen_textwelcometo"
+		   	 xml:space="preserve">Welcome to Federal Electricity and &#x0a;Water Authority Bill Payment &#x0a;Service</my:String>
+	 <my:String x:Key="languagescreen_textwelcometo_ar"
+		   	 xml:space="preserve">ولكوم تو فدرال الكتريسيتي اند وتر اوثوريتي بيل بيمنت سرفيس</my:String>
+  	<my:String x:Key="languagescreen_textpleaseselect"
+			 xml:space="preserve">Please select language by touching&#x0a;the preffered language button</my:String>
+	  <my:String x:Key="languagescreen_textpleaseselect_ar"
+			 xml:space="preserve">الرجاء اختيار اللغة عن طريق لمس زر اللغة المفضلة</my:String>-->
+
+		
+</ResourceDictionary>

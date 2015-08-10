@@ -1,0 +1,490 @@
+﻿<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+      mc:Ignorable="d"
+      d:DesignWidth="1280"
+      d:DesignHeight="1024"
+      x:Name="LanguageSelectionLayout">
+
+    <!--<Grid HorizontalAlignment="Center" Height="750" VerticalAlignment="Center" Width="1200">
+        <ItemsControl ItemsSource="{Binding Transaction.KioskServices}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+
+                    <Button Height="146"
+    			Margin="1"
+    			Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}, Path=DataContext.SubmitCommand}"
+    			CommandParameter="{Binding ServiceKey}"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                        <Image Source="{Binding ImagePath}"
+    				Stretch="Fill"
+    				/>
+                    </Button>
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+    </Grid>
+
+    <Button x:Name="LT" Command="{Binding AdminCommand}"  CommandParameter="1" Content="" Margin="0,0,0,0" 
+            HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50"
+            Opacity="10"/>
+    <Button x:Name="RT" Command="{Binding AdminCommand}" CommandParameter="2" Height="50" 
+            VerticalAlignment="Top" Opacity="10" Margin="0" HorizontalAlignment="Right" Width="50"/>
+    <Button x:Name="LB" Command="{Binding AdminCommand}" CommandParameter="3" 
+            HorizontalAlignment="Left" Width="50" Opacity="10" Margin="0" Height="50" 
+            VerticalAlignment="Bottom"/>
+    <Button x:Name="RB" Command="{Binding AdminCommand}" CommandParameter="4" Opacity="10" 
+            Margin="0" HorizontalAlignment="Right" Width="50" Height="50" VerticalAlignment="Bottom" />-->
+    <Grid.Resources>
+        <inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+        <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+
+        <Style x:Key="BackBtnStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle RadiusY="16" RadiusX="16" Fill="#80FFFFFF" Stroke="White"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Grid.Resources>
+
+
+
+
+    <!--<Grid x:Name="OtherApp" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="670">
+        <WrapPanel  x:Name="ModuleSelectionPanel"
+    		Focusable="True"
+    		HorizontalAlignment="Center"
+    		Height="Auto"
+    		Margin="0"
+    		VerticalAlignment="Center"
+    		Width="Auto">
+            <Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="fewa"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnFewa.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="adpc"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnADPC.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+        </WrapPanel>
+    </Grid>-->
+
+    <Grid HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="850">
+    	<WrapPanel  x:Name="ModuleSelectionPanel"
+    		Focusable="True"
+    		HorizontalAlignment="Center"
+    		Height="Auto"
+    		Margin="0"
+    		VerticalAlignment="Center"
+    		Width="Auto">
+
+            <!--<Button Height="146"
+                     Margin="10"
+                     Command="{Binding SubmitCommand}"
+                     CommandParameter="unionins"
+                     Style="{DynamicResource MBME_ShellButtonStyle}"
+                     Width="146"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnUI.png"
+                            Stretch="Fill"
+                            Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+                     Margin="10"
+                     Command="{Binding SubmitCommand}"
+                     CommandParameter="airarabia"
+                     Style="{DynamicResource MBME_ShellButtonStyle}"
+                     Width="146"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnAirArabia.png"
+                            Stretch="Fill"
+                            Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="duprepaid"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnDUPrePaid.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="aadc"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnAADC.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="adtfp"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnAADC.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="sharjmncp"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnADPC.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="charitycategory"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnAllCharities.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+                     Margin="10"
+                     Command="{Binding SubmitCommand}"
+                     CommandParameter="wu"
+                     Style="{DynamicResource MBME_ShellButtonStyle}"
+                     Width="146"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnWU.png"
+                            Stretch="Fill"
+                            Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>-->
+
+            <!--<Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="fewa"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnfewa.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>-->
+            <!--<Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="lms"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnlmshukran.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="lmsm"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnlmssurvey.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>-->
+
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="mawaqif"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnmawaqif.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>
+    		<!--<Button Height="146"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="et"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center"
+    			Margin="10">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnEzetop.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>
+    		<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="salik"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnsalik.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>
+    		<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="flydubai"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnflydubai.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>
+    		<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="du"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnDU.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="moremagic"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnMoreMagic.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="transcash"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnTransCash.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="uaeex"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnuaeex.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>-->
+    		<!--<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="maf"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+    			<Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnmaf.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+    		</Button>-->
+
+
+            <!--<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="ista"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnISTA.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+         <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="etisalatezeepay"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/as_btn.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="dubaicharity"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnDC.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>-->
+
+
+            <!--<Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="etisalat"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/Etisalat_btn.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+
+            
+             <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="dbpolice"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btn_dubaiPolice.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+
+           
+
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="dubaicharity"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnDU.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+
+
+
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="natixis"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnNatixis.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+
+            <Button Height="146"
+    			Margin="10"
+    			Command="{Binding SubmitCommand}"
+    			CommandParameter="groupon"
+    			Style="{DynamicResource MBME_ShellButtonStyle}"
+    			Width="146"
+    			VerticalAlignment="Center"
+    			HorizontalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnGroupon.png"
+    				Stretch="Fill"
+    				Margin="-6.999,-5.665,-11.001,-12.335" />
+            </Button>
+                 -->
+
+
+        </WrapPanel>
+    </Grid>
+
+
+    
+
+ 
+
+
+
+</Grid> 

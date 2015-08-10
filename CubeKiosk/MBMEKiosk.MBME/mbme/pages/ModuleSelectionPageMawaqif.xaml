@@ -1,0 +1,33 @@
+﻿<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignWidth="1280"
+      d:DesignHeight="1024"
+      x:Name="LanguageSelectionLayout">
+
+    <WrapPanel  Name="ModuleSelectionPanel"
+               Focusable="True"
+               HorizontalAlignment="Center"
+               Height="502.5"
+               Margin="0,110,0,0"
+               VerticalAlignment="Top"
+               Width="501"/>
+
+    <Button Height="146"
+                Margin="10"
+                Command="{Binding SubmitCommand}"
+                CommandParameter="mawaqif"
+                Style="{DynamicResource MBME_ShellButtonStyle}"
+                Width="146"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+        <Image Source="pack://siteoforigin:,,,/Modules/mbme/images/btnmawaqif.png"
+                   Stretch="Fill"
+                   Margin="-6.999,-5.665,-11.001,-12.335" ></Image>
+    </Button>
+
+
+</Grid>
+
