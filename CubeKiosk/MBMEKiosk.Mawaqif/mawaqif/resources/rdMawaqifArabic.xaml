@@ -1,0 +1,449 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d">
+
+<FontFamily x:Key="AllText_AR_FontFamily">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/#GE Dinar One</FontFamily>
+    <FontFamily x:Key="AllText_EN_FontFamily">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/#Helvetica Neue LT Pro-Md</FontFamily>
+    
+  
+    <!--String Resource Starts-->
+    <!--Bottom buttons-->
+    <my:String x:Key="mawaqif_txt_back">عودة</my:String>
+    <my:String x:Key="mawaqif_txt_exit">القائمة الرئيسية</my:String>
+
+    <my:String x:Key="mawaqif_txt_mawaqif">mawaqif</my:String>
+    <my:String x:Key="mawaqif_txt_www">www.</my:String>
+    <my:String x:Key="mawaqif_txt_call">Call</my:String>
+    <my:String x:Key="mawaqif_txt_ae">.ae</my:String>
+    <my:String x:Key="mawaqif_txt_num">800-3009</my:String>
+
+
+
+
+    <!--Number entry-->
+    <my:String x:Key="mawaqif_txt_number_1">1</my:String>
+    <my:String x:Key="mawaqif_txt_number_2">2</my:String>
+    <my:String x:Key="mawaqif_txt_number_3">3</my:String>
+    <my:String x:Key="mawaqif_txt_number_4">4</my:String>
+    <my:String x:Key="mawaqif_txt_number_5">5</my:String>
+    <my:String x:Key="mawaqif_txt_number_6">6</my:String>
+    <my:String x:Key="mawaqif_txt_number_7">7</my:String>
+    <my:String x:Key="mawaqif_txt_number_8">8</my:String>
+    <my:String x:Key="mawaqif_txt_number_9">9</my:String>
+    <my:String x:Key="mawaqif_txt_number_0">0</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_a">A</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_b">B</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_c">C</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_d">D</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_e">E</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_f">F</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_g">G</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_h">H</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_i">I</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_j">J</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_k">K</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_l">L</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_m">M</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_n">N</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_o">O</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_p">P</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_q">Q</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_r">R</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_s">S</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_t">T</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_u">U</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_v">V</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_w">W</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_x">X</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_y">Y</my:String>
+    <my:String x:Key="mawaqif_KBTxt_alpha_z">Z</my:String>
+    <my:String x:Key="mawaqif_txt_number_enter">تأكيد</my:String>
+
+
+
+    <!--Service Selection-->
+    <my:String x:Key="mawaqif_txt_service_account"
+               xml:space="preserve">إعادة التعبئة</my:String>
+    <my:String x:Key="mawaqif_txt_service_permit"
+               xml:space="preserve">تجديد تصاريح&#x0a;السكان</my:String>
+    <my:String x:Key="mawaqif_txt_service_fine"
+               xml:space="preserve">دفع المخالفات</my:String>
+    <my:String xml:space="preserve"
+               x:Key="mawaqif_txt_title_select_service">الرجاء اختيار الخدمة</my:String>
+
+
+    <!--Topup Balance Selection-->
+    <my:String x:Key="mawaqif_txt_check_balance">رصيد الحساب</my:String>
+    <my:String x:Key="mawaqif_txt_topup">إعادة التعبئة</my:String>
+    <my:String x:Key="mawaqif_txt_title_balance_topup_selection">الرجاء اختيار الخدمة</my:String>
+
+
+    <!--Number Entry-->
+    <my:String x:Key="mawaqif_txt_title_number_entry"
+               xml:space="preserve">الرجاء إدخال رقم الهاتف المتحرك مسبوقاً برمز ٠٥&#x0a;مثل:٠٥٠١٢٣٤٥٦٧ </my:String>
+
+    <!--Pin Entry-->
+    <my:String x:Key="mawaqif_txt_title_pin_entry"
+               xml:space="preserve">الرجاء إدخال رقم كلمة السر الخاصة بك</my:String>
+    <my:String x:Key="mawaqif_txt_get_pin">اضغط هنا للحصول على كلمة السر</my:String>
+
+
+    <!--Checking balance-->
+    <my:String x:Key="mawaqif_txt_retrieving_balance">طلبك قيد التنفيذ ، الرجاء الانتظار</my:String>
+
+
+    <!--Account details-->
+    <my:String x:Key="mawaqif_txt_mobile_number">رقم الهاتف</my:String>
+    <my:String x:Key="mawaqif_txt_balance">رصيد الحساب</my:String>
+    <my:String x:Key="mawaqif_txt_topup_account">إعادة التعبئة</my:String>
+    <my:String x:Key="mawaqif_txt_title_account_details">تفاصيل الحساب</my:String>
+
+    <!--Money Screen-->
+    <my:String x:Key="mawaqif_txt_dirham">درهم</my:String>
+    <my:String x:Key="mawaqif_txt_notes_accepted">الجهاز لا يعيد باقي المبلغ المدفوع</my:String>
+    <my:String x:Key="mawaqif_txt_notes_accepted_value">الحد الأدنى للمعاملة ١٠ درهم، الحد الأقصى للمعاملة ٥٠٠ درهم</my:String>
+    <my:String x:Key="mawaqif_txt_notes_accepted_max">لقد وصلت للمبلغ الأقصى للمعاملة، الرجاء إنهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_money_inserted">المبلغ المدفوع</my:String>
+    <my:String x:Key="mawaqif_txt_complete_transaction">إنهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_money_help">الرجاء عدم إدخال أكثر من ورقة نقدية دفعة واحدة</my:String>
+    <my:String x:Key="mawaqif_txt_title_money">:الرجاء إدخال الأوراق النقدية، الجهاز يقبل الأوراق التالية</my:String>
+    <my:String x:Key="mawaqif_txt_updated_balance">الرصيد الحالي</my:String>
+
+    <!--Receipt text-->
+    <my:String x:Key="mawaqif_txt_rcpt_branch_code">Branch Code رمز الفرع</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_receipt_number">Receipt Number رقم الايصال</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_date_time">Payment Date/Time تاريخ/ وقت الدفع</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_account_number">Mobile Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_account_number_ar">رقم الهاتف</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_id">Machine ID رقم الجهاز</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_location">Machine Location موقع الجهاز</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_previous_balance">Previous Balance الرصيد السابق</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_amount_paid">Amount Paid المبلغ المدفوع</my:String>
+    <!--<my:String x:Key="mawaqif_txt_rcpt_current_balance">Current Balance</my:String>-->
+    <my:String x:Key="mawaqif_txt_rcpt_current_balance">Current Balance</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_current_balance_ar">الرصيد الحالي(ar)</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_pvt_current_balance_ar">الرصيد الحالي</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_pvt_current_balance">PVT Balance</my:String>
+
+    <my:String x:Key="mawaqif_txt_rcpt_footer"
+               xml:space="preserve">Service: m-MAWAQiF top-up&#x0a;سيتم معالجة عمليات الدفع خلال 24 ساعة &#x0a;للإستفسار عن عمليات الدفع يرجى الإتصال على 8003786</my:String>
+
+    <!--Complete transaction-->
+    <my:String x:Key="mawaqif_txt_commiting_transaction">طلبك قيد التنفيذ ، الرجاء الانتظار</my:String>
+    <!--Make sure there is a place holder for replacing the text with transaction number. i-e [NUMBER]-->
+    <my:String x:Key="mawaqif_txt_completed_transaction_01"
+               xml:space="preserve">رقم المعاملة هو الرجاء الانتظار بينما يتم طباعة الإيصال</my:String>
+    <my:String x:Key="mawaqif_txt_completed_transaction_02"
+               xml:space="preserve">لقد تمت المعاملة بنجاح</my:String>
+    <my:String x:Key="mawaqif_txt_thankyou">شكرا لاستخدامك خدمة مواقف الآلية</my:String>
+
+
+
+    <!--Error text-->
+    <my:String x:Key="mawaqif_txt_error_99">خطأ في النظام الداخلي, يرجى المحاولة لاحقا</my:String>
+    <my:String x:Key="mawaqif_txt_error_101"
+               xml:space="preserve">يرجى التحقق من التفاصيل الخاصة بك&#x0a;&#x0a;مستخدم جديد؟ قم بالتسجيل للبدء في إستخدام م - مواقف &#x0a;www.mpark.mawaqif.ae</my:String>
+    <my:String x:Key="mawaqif_txt_error_102">خطأ في النظام الداخلي, يرجى المحاولة لاحقا</my:String>
+    <my:String x:Key="mawaqif_txt_error_103">رقم الهاتف الذي ادخلته غير صحيح, الرجاء التأكد</my:String>
+    <my:String x:Key="mawaqif_txt_error_104">رقم التعريف الشخصي الذي ادخلته غير صحيح, الرجاء التأكد</my:String>
+
+
+
+
+
+    <my:String x:Key="mawaqif_txt_resident_permit_coming_soon">الخدمة غير متوفرة حاليا الرجاء المحاولة لاحقا</my:String>
+    <my:String x:Key="mawaqif_txt_violation_payment_coming_soon">هذه الخدمة غير متوفرة بعد. يرجى العودة في وقت قريب...</my:String>
+
+
+    <!--Violation details-->
+    <my:String x:Key="mawaqif_txt_vd_account_number">رقم المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_vd_issue_date">تاريخ الإصدار</my:String>
+    <my:String x:Key="mawaqif_txt_vd_plate_number">رقم اللوحة</my:String>
+    <my:String x:Key="mawaqif_txt_vd_PVT_amount">المبلغ</my:String>
+    <my:String x:Key="mawaqif_txt_vd_title_account_details">تفاصيل المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_vd_topup_now">إدفع الآن</my:String>
+    <my:String x:Key="mawaqif_txt_vd_discount_information">هذه المخالفة في فترة الخصم</my:String>
+    <my:String x:Key="mawaqif_txt_vd_plate_country">مصدر اللوحة</my:String>
+    <my:String x:Key="mawaqif_txt_vd_plate_category">فئة اللوحة</my:String>
+    <my:String x:Key="mawaqif_txt_vd_plate_type">نوع اللوحة</my:String>
+	
+
+
+    <my:String x:Key="mawaqif_txt_vd_ticket_details">PVT Details</my:String>
+    <my:String x:Key="mawaqif_txt_vd_ticket_number">PVT Number</my:String>
+    <my:String x:Key="mawaqif_txt_vd_date">Date</my:String>
+    <my:String x:Key="mawaqif_txt_vd_registration">Registration</my:String>
+    <my:String x:Key="mawaqif_txt_vd_amount">Amount</my:String>
+
+    <!--Violation number entry-->
+    <my:String x:Key="mawaqif_txt_title_violation_number_entry"
+               xml:space="preserve">الرجاء إدخال رقم المخالفة</my:String>
+
+    <!--Searching pvt-->
+    <my:String x:Key="mawaqif_txt_searching_pvt">الرجاء الانتظار بينما يتم التحقق من بيانات المخالفة</my:String>
+
+   <!--Violation Money Screen-->
+    <my:String x:Key="mawaqif_txt_vm_notes_accepted">هذا الجهاز يقبل الأوراق النقدية التالية</my:String>
+    <my:String x:Key="mawaqif_txt_vm_notes_accepted_value">10, 20, 50, 100, 200, 500, 1000</my:String>
+    <my:String x:Key="mawaqif_txt_vm_notes_accepted_max">لقد وصلت الحد الأقصى للدفع، الرجاء الضغط على زر إنهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_vm_money_inserted">المبلغ المدفوع</my:String>
+    <my:String x:Key="mawaqif_txt_vm_complete_transaction">انهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_vm_money_help">الرجاء عدم ادخال أكثر من ورقة نقدية دفعة واحدة</my:String>
+    
+    <my:String x:Key="mawaqif_txt_vm_title_money01"
+               xml:space="preserve">تحذير:الجهاز يقبل الدفع الجزئي ولكن لا يتم إعتبار المخالفة مسددة إلا بدفع المبلغ كاملاً</my:String>
+    <my:String x:Key="mawaqif_txt_vm_title_money02"
+               xml:space="preserve">لا يمكنك استرداد المبلغ المتبقي</my:String>
+    <my:String x:Key="mawaqif_txt_vm_title_money03"
+               xml:space="preserve">للاستفادة من كامل قيمة الخصم يجب تسديد مبلغ المخالفة خلال 15 يوماً من تاريخ اصدارها</my:String>
+    
+    <my:String x:Key="mawaqif_txt_vm_money_remaining">المبلغ المتبقي</my:String>
+    <my:String x:Key="mawaqif_txt_vm_money_max_reached">لقد وصلت الحد الأقصى للدفع، الرجاء الضغط على زر إنهاء المعاملة</my:String>
+
+    <!--Violation Complete transaction-->
+    <my:String x:Key="mawaqif_txt_vct_commiting_transaction">طلبك قيد التنفيذ ، الرجاء الانتظار</my:String>
+    <my:String x:Key="mawaqif_txt_vct_completed_transaction"
+               xml:space="preserve">لقد تمت العملية بنجاح &#x0a; الرجاء الانتظار بينما يتم طباعة الايصال</my:String>
+    <my:String x:Key="mawaqif_txt_vct_failed_transaction"
+               xml:space="preserve">الرجاء الإنتظار بينما يتم طباعة الايصال</my:String>
+
+    <!--Violation errors text-->
+    <my:String x:Key="mawaqif_txt_error_201">عذراً، لم يتم العثور على رقم المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_error_202">عذراً، لا يمكن دفع هذه المخالفة، المخالفة مدفوعة</my:String>
+    <my:String x:Key="mawaqif_txt_error_203">عذراً لا يمكن دفع هذه المخالفة ، فقد تم حذفها</my:String>
+    <my:String x:Key="mawaqif_txt_error_210">لم نستطيع العثور على تذكرتك, الرجاء الاتصال بخدمة العملاء</my:String>
+    <my:String x:Key="mawaqif_txt_error_211">غير مسموح لك بالقيام بعملية الدفع. الرجاء الاتصال بخدمة العملاء</my:String>
+    <my:String x:Key="mawaqif_txt_error_212">إن التذكرة غير صالحة</my:String>
+    <my:String x:Key="mawaqif_txt_error_213">بعض المعلومات عن عملية الدفع مفقودة</my:String>
+    <my:String x:Key="mawaqif_txt_error_214">عذراً، لا يمكن دفع هذه المخالفة، المخالفة مدفوعة</my:String>
+    <my:String x:Key="mawaqif_txt_error_215">مبلغ عملية الدفع غير صالح</my:String>
+    <my:String x:Key="mawaqif_txt_error_216">CPMS فشل في عملية دفع تذكرة</my:String>
+
+
+    <!--Violation Receipt text-->
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_number">PVT Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_number_ar">رقم المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_amount">PVT Amount</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_ar">قيمة المخالفة</my:String>
+    
+    <my:String x:Key="mawaqif_txt_rcpt_transaction_number">Receipt Number رقم الايصال</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_v_footer"
+               xml:space="preserve">Service: MAWAQiF PVT&#x0a;سيتم معالجة عمليات الدفع خلال 24 ساعة &#x0a;للإستفسار عن عمليات الدفع يرجى الإتصال على 8003786</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_v_failed"
+               xml:space="preserve"> تحذير &#x0a; المبلغ المدفوع أقل من المبلغ المستحق </my:String>
+    
+    <!--Permit number entry-->
+    <my:String x:Key="mawaqif_txt_title_permit_number_entry">الرجاء إدخال رقم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_permit_number_entry_ThisRenewal"
+               xml:space="preserve">This renewal service must only be used provided that NO details have changed&#x0a;such as vehicle number or address (ar)</my:String>
+
+    <!--Violation Pay entry-->
+    <my:String x:Key="mawaqif_txt_title_pvt_number_entry">الرجاء إدخال رقم التصريح</my:String>
+    
+    <!--Searching permit-->
+    <my:String x:Key="mawaqif_txt_searching_permit">طلبك قيد التنفيذ ، الرجاء الانتظار.</my:String>
+
+    <!--Permit details-->
+    <my:String x:Key="mawaqif_txt_pd_permit_number">رقم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_pd_date_issued">تاريخ الاصدار</my:String>
+    <my:String x:Key="mawaqif_txt_pd_expiry_date">تاريخ الانتهاء</my:String>
+    <my:String x:Key="mawaqif_txt_pd_cost">قيمة التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_pd_pay">متابعة</my:String>
+    <my:String x:Key="mawaqif_txt_pd_pay_now">متابعة</my:String>
+    <my:String x:Key="mawaqif_txt_pd_title">تفاصيل التصريح</my:String>
+
+    <!--Permit Warning screen-->
+    <my:String x:Key="mawaqif_txt_pw_message"
+               xml:space="preserve">ملاحظة: الرجاء مراجعة أقرب مركز خدمة عملاء و تقديم الوثائق التالية لاستكمال إجراءات تجديد التصريح&#x0a;   ١) فاتورة كهرباء لآخر ثلاثة أشهر&#x0a;   ٢) نسخة عن بطاقة الهوية/ جواز السفر و نسخة عن تأشيرة الزيارة للمغتربين&#x0a;   ٣) خطاب من مالك العقار و تفاصيل الأيجار و مدته&#x0a;  (٤) نسخة من بطاقة تسجيل المركبة (الملكية &#x0a;  (٥) الوثائق الرسمية (جواز سفر أو عقد زواج&#x0a;  ٦) إثبات صلة القرابة من الدرجة الأولى (زوج، زوجة، أم، أب، ابن) لمقدم الطلب&#x0a;&#x0a;إذا كنت تقبل الأحكام و الشروط إضغط موافق</my:String>
+
+<my:String x:Key="mawaqif_txt_pw_message2"
+               xml:space="preserve">الرجاء مراجعة أقرب مركز خدمة عملاء و تقديم الوثائق التالية لاستكمال إجراءات تجديد التصريح&#x0a;   ١) فاتورة كهرباء لآخر ثلاثة أشهر&#x0a;   ٢) نسخة عن بطاقة الهوية/ جواز السفر و نسخة عن تأشيرة الزيارة للمغتربين&#x0a;   ٣) خطاب من مالك العقار و تفاصيل الأيجار و مدته&#x0a;  (٤) نسخة من بطاقة تسجيل المركبة (الملكية &#x0a;  (٥) الوثائق الرسمية (جواز سفر أو عقد زواج&#x0a;  ٦) إثبات صلة القرابة من الدرجة الأولى (زوج، زوجة، أم، أب، ابن) لمقدم الطلب&#x0a;&#x0a;</my:String>
+
+    <my:String x:Key="mawaqif_txt_pw_agree">موافق</my:String>
+    <my:String x:Key="mawaqif_txt_pw_title">شروط و أحكام الدفع</my:String>
+
+<my:String x:Key="mawaqif_txt_pw_title2">ملاحظة</my:String>
+
+
+    <!--Permit Money Screen-->
+    <my:String x:Key="mawaqif_txt_pm_notes_accepted">هذا الجهاز يقبل الأوراق النقدية التالية</my:String>
+    <my:String x:Key="mawaqif_txt_pm_notes_accepted_value">10, 20, 50, 100, 200, 500, 1000</my:String>
+    <my:String x:Key="mawaqif_txt_pm_notes_accepted_max">لقد وصلت الحد الأقصى للدفع، الرجاء الضغط على زر إنهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_pm_money_inserted">المبلغ المدفوع</my:String>
+    <my:String x:Key="mawaqif_txt_pm_complete_transaction">انهاء المعاملة</my:String>
+    <my:String x:Key="mawaqif_txt_pm_money_help">الرجاء عدم ادخال أكثر من ورقة نقدية واحدة دفعة واحدة</my:String>
+    <my:String x:Key="mawaqif_txt_pm_title_money"
+               xml:space="preserve">تحذير&#x0a;الدفع الجزئي غير مسموح به، الرجاء إدخال قيمة التصريح بالكامل &#x0a;لا يمكنك استرداد المبلغ المتبقي</my:String>
+    <my:String x:Key="mawaqif_txt_pm_money_remaining">المبلغ المتبقي</my:String>
+    <my:String x:Key="mawaqif_txt_pm_money_max_reached">لقد وصلت للحد الأقصى للدفع, الرجاء الضغط على زر الإنهاء</my:String>
+
+    <!--Permit Complete transaction-->
+    <my:String x:Key="mawaqif_txt_pct_commiting_transaction">طلبك قيد التنفيذ ، الرجاء الانتظار</my:String>
+    <my:String x:Key="mawaqif_txt_pct_completed_transaction"
+               xml:space="preserve">لقد تمت العملية بنجاح &#x0a;الرجاء الانتظار بينما يتم طباعة الايصال&#x0a;&#x0a;&#x0a;ملاحظة: الرجاء مراجعة أقرب مركز خدمة عملاء و تقديم الوثائق التالية لاستكمال إجراءات تجديد التصريح&#x0a;   ١) فاتورة كهرباء لآخر ثلاثة أشهر&#x0a;   ٢) نسخة عن بطاقة الهوية/ جواز السفر و نسخة عن تأشيرة الزيارة للمغتربين&#x0a;   ٣) خطاب من مالك العقار و تفاصيل الأيجار و مدته&#x0a;  ٣) نسخة من بطاقة تسجيل المركبة (الملكية) &#x0a;   (٥) الوثائق الرسمية (جواز سفر أو عقد زواج&#x0a;  ٦) إثبات صلة القرابة من الدرجة الأولى (زوج، زوجة، أم، أب، ابن) لمقدم الطلب&#x0a; </my:String>
+    <my:String x:Key="mawaqif_txt_pct_transaction_failed"
+               xml:space="preserve">نعتذر لم تتم هذه العملية بنجاح &#x0a; الرجاء الانتظار بينما يتم طباعة الايصال </my:String>
+
+    <!--Permit receipt text-->
+    <my:String x:Key="mawaqif_txt_rcpt_permit_number">Permit Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_permit_number_ar">رقم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_permit_amount">Permit Cost </my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_permit_amount_ar">قيمة التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_p_footer"
+               xml:space="preserve">Service: MAWAQiF Resident Permit&#x0a;يسمح فقط بدفع كامل المبلغ المستحق&#x0a;سيتم معالجة عمليات الدفع خلال 24 ساعة &#x0a;للإستفسار عن عمليات الدفع يرجى الإتصال على 8003786</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_p_failed"
+               xml:space="preserve"> فشل العملية &#x0a; المبلغ المدفوع أقل من المبلغ المستحق </my:String>
+
+    <!--Permit errors text-->
+    <my:String x:Key="mawaqif_txt_error_301">عذراً، لكن لم يتم العثور على رقم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_error_302">عذراً لا يمكن تجديد هذا التصريح، التصريح قيد المراجعة</my:String>
+    <my:String x:Key="mawaqif_txt_error_303">عذراً، لا يمكن تجديد هذا التصريح،  فقد تم تسديد رسوم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_error_304">عذراً، لا يمكن تجديد هذا التصريح فقد تم تجديده مسبقاً</my:String>
+    <!--Make sure for error 305 the place holder [EXPIRY] is present in text so it can be replaced at runtime-->
+    <my:String x:Key="mawaqif_txt_error_305"
+               xml:space="preserve">عذراً، لا يمكن تجديد هذا التصريح، فقد تم إصداره بالفعل.&#x0a; تاريخ انتهاء تصريحك هو [EXPIRY]</my:String>
+    <my:String x:Key="mawaqif_txt_error_306"
+               xml:space="preserve">عذراً، لا يمكن تجديد هذا التصريح فقد تم تجديده مسبقاً</my:String>
+    <my:String x:Key="mawaqif_txt_error_307"
+               xml:space="preserve">عذراً، لا يمكن تجديد هذا التصريح، فقد انتهت مدة صلاحيته</my:String>
+    <my:String x:Key="mawaqif_txt_error_308"
+               xml:space="preserve">308</my:String>
+
+    <!--Receipt text (1)-->
+    <my:String x:Key="mawaqif_txt_rcpt_branch_code_1">Branch Code</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_receipt_number_1">Receipt Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_date_time_1">Date/Time</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_account_number_1">Account Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_id_1">Machine ID</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_location_1">Machine Location</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_previous_balance_1">Previous Balance</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_amount_paid_1">Amount Paid</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_current_balance_1">Current Balance</my:String>
+
+
+    <!--Receipt text (2)-->
+    <my:String x:Key="mawaqif_txt_rcpt_branch_code_2">رمز الفرع</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_receipt_number_2">رقم الايصال</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_date_time_2">تاريخ / وقت الدفع</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_account_number_2">رقم الهاتف</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_id_2">رقم الجهاز</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_kiosk_location_2">موقع الجهاز</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_previous_balance_2">الرصيد السابق</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_amount_paid_2">المبلغ المدفوع</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_current_balance_2">الرصيد الحالي</my:String>
+
+    <!--Violation Receipt text (1)-->
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_number_1">PVT Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_1">PVT Amount</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_transaction_number_1">Receipt Number</my:String>
+
+    <!--Violation Receipt text (2)-->
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_number_2">رقم المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_2">قيمة المخالفة</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_transaction_number_2">رقم العملية</my:String>
+
+    <!--Permit receipt text (1)-->
+    <my:String x:Key="mawaqif_txt_rcpt_permit_number_1">Permit Number</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_permit_amount_1">Permit Cost</my:String>
+
+    <!--Permit receipt text (2)-->
+    <my:String x:Key="mawaqif_txt_rcpt_permit_number_2">رقم التصريح</my:String>
+    <my:String x:Key="mawaqif_txt_rcpt_permit_amount_2">قيمة التصريح</my:String>
+
+    <!--Transaction Complete screen-->
+    <my:String x:Key="transactioncomplete_completionetext"
+               xml:space="preserve">لقد تمت العملية بنجاح &#x0a;الرجاء الانتظار بينما يتم طباعة الايصال</my:String>
+    <!--Error entry screen-->
+    <my:String x:Key="errorentry_texterror">عذرا , يرجى المحاولة لاحقا</my:String>
+<my:String x:Key="Mawaqif_TimeoutScreen"
+               xml:space="preserve">عذراً،  لقد انتهى الوقت المحدد للعملية. يرجى المحاولة مرة أخرى</my:String>
+    <!--Auto Submit-->
+    <my:String x:Key="Mawaqif_AutoSubmit"
+               xml:space="preserve">طلبك قيد التنفيذ ، الرجاء الانتظار</my:String>
+
+    <!--Transaction Posting Failed screen-->
+    <my:String x:Key="transactioncomplete_postingfailedtext"
+               xml:space="preserve">عذراً، لم تتم هذه العملية بنجاح. الرجاء الانتظار بينما يتم طباعة الايصال</my:String>
+
+    <!-- Payment Mode Selection-->
+
+    <my:String x:Key="mawaqif_txt_pm_cash_payment"
+               xml:space="preserve">Cash Payment</my:String>
+    <my:String x:Key="mawaqif_txt_pm_card_payment"
+               xml:space="preserve">Card Payment</my:String>
+
+    <!--Card Payment flow-->
+
+    <!--Amount entry screen-->
+    <my:String x:Key="Mawaqif_SecureCard"
+               xml:space="preserve">Secure card payment.&#x0a;&#x0a;Please enter the amount you wish to pay.</my:String>
+    <my:String x:Key="Mawaqif_AcceptedPayments"
+               xml:space="preserve">Accepted payments:</my:String>
+
+    <!--Amount confirmation screen-->
+    <my:String x:Key="Mawaqif_PleaseConfirm"
+               xml:space="preserve">Please confirm the amount</my:String>
+    <my:String x:Key="Mawaqif_Ok"
+               xml:space="preserve">Ok</my:String>
+    <my:String x:Key="Mawaqif_Card_Amount"
+               xml:space="preserve">Amount</my:String>
+    <my:String x:Key="Mawaqif_Card_Fee"
+               xml:space="preserve">Fee (%)</my:String>
+    <my:String x:Key="Mawaqif_Card_FeeAmount"
+               xml:space="preserve">Amount including fee</my:String>
+    <my:String x:Key="Mawaqif_Card_AED"
+               xml:space="preserve">AED</my:String>
+
+    <!--Card insertion screen-->
+    <my:String x:Key="Mawaqif_InsertCard"
+               xml:space="preserve">Insert card in terminal below</my:String>
+    <my:String x:Key="Mawaqif_RemoveCard"
+               xml:space="preserve">Remove card from terminal below</my:String>
+
+    <!--Enter pin screen-->
+    <my:String x:Key="Mawaqif_EnterPIN"
+               xml:space="preserve">Enter PIN on pad below</my:String>
+    <my:String x:Key="Mawaqif_ConfirmPIN"
+               xml:space="preserve">Confirm PIN on pad below</my:String>
+
+    <!--Payment confirmation screen-->
+    <my:String x:Key="Mawaqif_PaymentAuthorised"
+               xml:space="preserve">Payment authorised and confirmed</my:String>
+
+    <!--Payment confirmation screen-->
+    <my:String x:Key="CC_PaymentAuthorised"
+               xml:space="preserve">Payment authorised and confirmed</my:String>
+    <my:String x:Key="CC_PaymentConfirmed"
+               xml:space="preserve">Payment Authorised/Confirmed</my:String>
+    <my:String x:Key="CC_PaymentFailed"
+               xml:space="preserve">Payment Failed</my:String>
+    <my:String x:Key="CC_CardInvalid"
+               xml:space="preserve">Card is Invalid</my:String>
+    <my:String x:Key="CC_CUSTOMER_PIN"
+               xml:space="preserve">Enter Customer Pin</my:String>
+    <my:String x:Key="CC_PLEASE_WAIT"
+               xml:space="preserve">Please Wait</my:String>
+    <my:String x:Key="CC_PIN_ACCEPTED"
+               xml:space="preserve">Pin Accepted</my:String>
+    <my:String x:Key="CC_IN_PROGRESS"
+               xml:space="preserve">In Progress</my:String>
+    <my:String x:Key="CC_CONNECTION_MADE"
+               xml:space="preserve">Connection Made</my:String>
+    <my:String x:Key="CC_TRANSACTION_CANCELLED"
+               xml:space="preserve">Transaction Cancelled</my:String>
+    <my:String x:Key="CC_INSERT_CARD_ON_TERMINAL"
+               xml:space="preserve">Insert Card On Terminal</my:String>
+    <my:String x:Key="CC_REMOVE_CARD_FROM_TERMINAL"
+               xml:space="preserve">Remove Card from Terminal</my:String>
+    <my:String x:Key="CC_ONLINE_PIN_ENTERED"
+               xml:space="preserve">Online Pin Entered</my:String>
+    <my:String x:Key="CC_SORRY_FOR_DELAY"
+               xml:space="preserve">Sorry for Delay</my:String>
+    <my:String x:Key="CC_RE-ENTER_PIN"
+               xml:space="preserve">RE-Enter Pin</my:String>
+
+</ResourceDictionary>

@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <location path ="modules/mawaqif/" />
+  <defaultbackground path ="images/bgmawaqif.jpg" />
+  <defaultshell path = "pages/MawaqifShell.xaml" />
+  <defaultstyledictionary key="common" path ="resources/rdMawaqif.xaml" />
+  <defaulttimeout seconds="30" />
+  <messagetimeout seconds="5" />
+  <idletimeout seconds="30" />
+
+  <styleoptions>
+    <style key="common" path="resources/rdMawaqif.xaml" default="true"/>
+    <style key="styleEN" path="resources/rdMawaqifEN.xaml" />
+    <style key="styleAR" path="resources/rdMawaqifAR.xaml" />
+  </styleoptions>
+
+  <languageoptions>
+    <language key="english" path="resources/rdMawaqifEnglish.xaml" default="true"/>
+    <language key="arabic" path="resources/rdMawaqifArabic.xaml" />
+  </languageoptions>
+
+  <states>
+    <!-- State: LanguageSelection-->
+    <state name = "LanguageSelection" file ="pages/LanguageSelection.xaml" default="true">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.LanguageSelectionPresenter" />
+      <actions>
+        <action name ="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name ="submit" acquiredstate = "ServiceSelection" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen"/>
+      </actions>
+    </state>
+
+    <!-- State: ServiceSelection-->
+    <state name ="ServiceSelection" file ="pages/ServiceSelection.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ServiceSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="LanguageSelection" />
+        <action name="topup" acquiredstate = "MMAWAQIFSelection" />
+        <action name="renewal" acquiredstate = "RPermitNumberSelection" />
+        <action name="violationpay" acquiredstate = "PVTPaymentSelection" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--Renewal Permit Flow Starts-->
+
+    <!--RPermitNumberSelection Starts-->
+    <state name ="RPermitNumberSelection" file ="pages/NumberEntryKeyboard.xaml" leaddigits="RP" maxlength = "9">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.RPKeyBoardEntryPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="ServiceSelection" />
+        <action name="submit" acquiredstate = "PermitProcessingGetBalance" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--PermitProcessingGetBalance Starts-->
+    <state name ="PermitProcessingGetBalance" file ="pages/Processingscreen.xaml" timeout="180" retrycount="35">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingGetBalancePresenter" contentkey="mawaqif_txt_retrieving_balance" />
+      <actions>
+        <action name="error" acquiredstate = "RPBillerErrorScreenRetry" />
+        <action name="submit" acquiredstate = "PermitAccountDetails" />
+        <action name="billerspecificerror" acquiredstate = "RPBillerErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--PermitAccountDetails Starts-->
+    <state name ="PermitAccountDetails" file ="pages/PermitAccountDetails.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="RPermitNumberSelection" />
+        <action name="submit" acquiredstate = "PermitTermsnConditions" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--PermitTermsnConditions Starts-->
+    <state name ="PermitTermsnConditions" file ="pages/PermitPaymentTermsAndConditions.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.PresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PermitAccountDetails" />
+        <!--<action name="submit" acquiredstate = "PermitPaymentScreen" />-->
+        <action name="submit" acquiredstate = "RPPaymentModeSelection" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: PaymentModeSelection-->
+    <state name ="RPPaymentModeSelection" file ="pages/PaymentModeSelection.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.PaymentModeSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PermitAccountDetails" />
+        <action name="cash" acquiredstate = "PermitPaymentScreen" />
+        <action name="card" acquiredstate = "ProcessingGetFee" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--PermitPaymentScreen Starts-->
+    <state name ="PermitPaymentScreen" file ="pages/PermitPaymentScreen.xaml" denomination="5,10,20,50,100,200,500,1000" timeout="320">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.CashPaymentPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PermitTermsnConditions" />
+        <action name="submit" acquiredstate = "PermitProcessPaymentScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+        <action name="autosubmit" acquiredstate = "RPAutoTransactionSubmit" />
+      </actions>
+    </state>
+
+    <!--PermitProcessPaymentScreen Starts-->
+    <state name ="PermitProcessPaymentScreen" file ="pages/ProcessingScreen.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingPaymentPresenter" contentkey="mawaqif_txt_pct_commiting_transaction"/>
+      <actions>
+        <action name="error" acquiredstate = "PermitPaymentErrorScreen" />
+        <action name="submit" acquiredstate = "PermitTermsnConditionsReminder"/>
+        <action name ="timeout" acquiredstate = "RPTimeoutScreen" />
+        <action name ="billerspecificerror" acquiredstate = "RPBillerErrorScreen1" />
+      </actions>
+    </state>
+
+    <!--PermitTermsnConditions Starts-->
+    <state name ="PermitTermsnConditionsReminder" file ="pages/PermitTermsnConditionsReminder.xaml" timeout="20">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" />
+      <actions>
+        <action name ="timeout" acquiredstate = "ReceiptNotification" />
+      </actions>
+    </state>
+
+    <!-- State: PermitPaymentErrorScreen-->
+    <state name ="PermitPaymentErrorScreen" file ="pages/PaymentErrorScreen.xaml" timeout="5">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "ReceiptNotification" />
+        <!--<action name="submit" acquiredstate = "MBMEModule" switchmodule="true" />-->
+      </actions>
+    </state>
+
+    <!--MMAWAQIFSelection Starts-->
+    <state name ="MMAWAQIFSelection" file ="pages/m-MAWAQIFSelectionScreen.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MMAWAQIFSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule ="true" />
+        <action name="back" acquiredstate ="ServiceSelection" />
+        <action name="chkbalance" acquiredstate ="ConsumerNumberEntryScreen" />
+        <action name="topup" acquiredstate = "ConsumerNumberEntryScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+    <!--Renewal Permit Flow Ends-->
+
+    <!--Violation Payment Starts  leaddigits="AD" -->
+    <state name ="PVTPaymentSelection" file ="pages/NumberEntryKeyboard.xaml"  maxlength = "10">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.PVTKeyBoardEntryPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="ServiceSelection" />
+        <action name="submit" acquiredstate = "PVTProcessingGetBalance" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="PVTProcessingGetBalance" file ="pages/Processingscreen.xaml" timeout="180" retrycount="35">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingGetBalancePresenter"  contentkey="mawaqif_txt_retrieving_balance"/>
+      <actions>
+        <action name="submit" acquiredstate = "PVTAccountDetails" />
+        <action name="billerspecificerror" acquiredstate = "VpayBillerErrorScreen" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="PVTAccountDetails" file ="pages/PVTAccountDetails.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PVTPaymentSelection" />
+        <action name="submit" acquiredstate = "PVTPaymentModeSelection" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: PaymentModeSelection-->
+    <state name ="PVTPaymentModeSelection" file ="pages/PaymentModeSelection.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.PaymentModeSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PVTAccountDetails" />
+        <action name="cash" acquiredstate = "PVTPaymentScreen" />
+        <action name="card" acquiredstate = "ProcessingGetFee" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="PVTPaymentScreen" file ="pages/PVTPaymentScreen.xaml" denomination="5,10,20,50,100,200,500,1000"  timeout="320">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.CashPaymentPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PVTAccountDetails" />
+        <action name="submit" acquiredstate = "PVTProcessPaymentScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+        <action name="autosubmit" acquiredstate = "VpayAutoTransactionSubmit" />
+      </actions>
+    </state>
+
+    <state name ="PVTProcessPaymentScreen" file ="pages/ProcessingScreen.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingPaymentPresenter" contentkey="mawaqif_txt_pct_commiting_transaction"/>
+      <actions>
+        <action name="submit" acquiredstate = "ReceiptNotification"/>
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+        <action name="billerspecificerror" acquiredstate = "VpayBillerErrorScreen1" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+      </actions>
+    </state>
+
+    <state name ="MMAWAQIFSelection" file ="pages/m-MAWAQIFSelectionScreen.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MMAWAQIFSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule ="true" />
+        <action name="back" acquiredstate ="ServiceSelection" />
+        <action name="chkbalance" acquiredstate ="ConsumerNumberEntryScreen" />
+        <action name="topup" acquiredstate = "ConsumerNumberEntryScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: ConsumerNumberEntryScreen-->
+    <state name ="ConsumerNumberEntryScreen" file ="pages/ConsumerNumberEntry.xaml" leaddigits="05"  maxlength="10" minlength="10">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ConsumerNumberEntryPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule ="true" />
+        <action name="back" acquiredstate ="MMAWAQIFSelection" />
+        <action name="submit" acquiredstate = "ProcessingGetBalance" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: ProcessingGetBalance-->
+    <state name ="ProcessingGetBalance" file ="pages/ProcessingScreen.xaml"  timeout="90" retrycount="3" >
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingGetBalancePresenter" contentkey="mawaqif_txt_retrieving_balance"/>
+      <actions>
+        <action name="submit" acquiredstate = "MawaqifBalanceScreen" />
+        <action name="billerspecificerror" acquiredstate = "TopUpBillerErrorScreen" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: MawaqifBalanceScreen-->
+    <state name ="MawaqifBalanceScreen" file ="pages/mMAWAQIFAccountDetails.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule ="true" />
+        <action name="back" acquiredstate ="ConsumerNumberEntryScreen" />
+        <action name="submit" acquiredstate = "PaymentModeSelection" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: PaymentModeSelection-->
+    <state name ="PaymentModeSelection" file ="pages/PaymentModeSelection.xaml">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.PaymentModeSelectionPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="MawaqifBalanceScreen" />
+        <action name="cash" acquiredstate = "MawaqifPaymentScreen" />
+        <action name="card" acquiredstate = "ProcessingGetFee" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: ProcessingGetBalance-->
+    <state name ="ProcessingGetFee" file ="pages/ProcessingScreen.xaml" >
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MwqProcessingGetFeePresenter" contentkey="mawaqif_txt_retrieving_balance"/>
+      <actions>
+        <action name="topupsubmit" acquiredstate = "CardPaymentAmountEntry" />
+        <action name="pvtsubmit" acquiredstate = "PVTCardPaymentAmountDisplay" />
+        <action name="rpsubmit" acquiredstate = "RPCardPaymentAmountDisplay" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+    
+    <!-- State: MawaqifPaymentScreen-->
+    <state name ="MawaqifPaymentScreen" file ="pages/MAWAQIFPaymentScreen.xaml" denomination ="10,20,50,100,200,500" min="10" max="500"  timeout="320">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.TopUpCashPaymentPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule ="true" />
+        <action name="back" acquiredstate ="MawaqifBalanceScreen" />
+        <action name="submit" acquiredstate = "ProcessingPostPayment" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+        <action name="autosubmit" acquiredstate = "TopUpAutoTransactionSubmit" />
+      </actions>
+    </state>
+
+    <!-- State: CardPaymentAmountEntry-->
+    <state name ="CardPaymentAmountEntry" file ="pages/CardPaymentAmountEntry.xaml" leaddigits="" minlength="1" maxlength="5">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.CardPaymentAmountEntryPresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PaymentModeSelection" />
+        <action name="submit" acquiredstate = "CardPaymentAmountDisplay" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+     
+    <!-- State: CardPaymentAmountEntry-->
+    <state name ="CardPaymentAmountDisplay" file ="pages/CreditCardAmountDisplay.xaml" leaddigits="" minlength="2" maxlength="8">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PaymentModeSelection" />
+        <action name="submit" acquiredstate = "CardPayment" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="PVTCardPaymentAmountDisplay" file ="pages/CreditCardAmountDisplay.xaml" leaddigits="" minlength="2" maxlength="8">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PVTPaymentModeSelection" />
+        <action name="submit" acquiredstate = "PVTCardPayment" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="RPCardPaymentAmountDisplay" file ="pages/CreditCardAmountDisplay.xaml" leaddigits="" minlength="2" maxlength="8">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MawaqifPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="RPPaymentModeSelection" />
+        <action name="submit" acquiredstate = "RPCardPayment" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+    
+    
+
+    <!-- State: CardPayment-->
+
+    <!--<state name ="CardPayment" file ="pages/CardPayment.xaml" timeout="180">
+    <view name ="MBMEKiosk.Mawaqif.Presenters.CardPaymentPresenter" />
+    <actions>
+      <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+      <action name="back" acquiredstate ="MawaqifBalanceScreen" />
+      <action name="submit" acquiredstate = "ProcessingPostPayment" />
+      <action name="autosubmit" acquiredstate = "TopUpAutoTransactionSubmit" />
+      <action name ="timeout" acquiredstate = "TimeoutScreen" />
+    </actions>
+  </state>-->
+
+    <!-- State: CardPayment-->
+    <!--<state name ="CardPayment" file ="pages/CardPayment.xaml" timeout="180">-->
+    <state name ="CardPayment" file ="pages/CreditCardInsertCard.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MwqCardPaymentPresenter" />
+      <actions>
+        <action name = "home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name = "back" acquiredstate ="PaymentModeSelection" />
+        <action name = "generic" acquiredstate = "GenericCardState" />
+        <action name="removecard" acquiredstate = "RemoveCard" />
+        <action name ="txncancelled" acquiredstate = "PaymentModeSelection" />
+        <action name = "autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name = "timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="PVTCardPayment" file ="pages/CreditCardInsertCard.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MwqCardPaymentPresenter" />
+      <actions>
+        <action name = "home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name = "back" acquiredstate ="PVTPaymentModeSelection" />
+        <action name = "generic" acquiredstate = "GenericCardState" />
+        <action name="removecard" acquiredstate = "RemoveCard" />
+        <action name ="txncancelled" acquiredstate = "PVTPaymentModeSelection" />
+        <action name = "autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name = "timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="RPCardPayment" file ="pages/CreditCardInsertCard.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.MwqCardPaymentPresenter" />
+      <actions>
+        <action name = "home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name = "back" acquiredstate ="RPPaymentModeSelection" />
+        <action name = "generic" acquiredstate = "GenericCardState" />
+        <action name="removecard" acquiredstate = "RemoveCard" />
+        <action name ="txncancelled" acquiredstate = "RPPaymentModeSelection" />
+        <action name = "autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name = "timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+    
+    <state name ="GenericCardState" file ="pages/GenericCardMessage.xaml" timeout="180">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.CardPaymentStatePresenter" />
+      <actions>
+        <action name="generic" acquiredstate = "GenericCardState" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name="enterpin" acquiredstate = "EnterPin" />
+        <action name="removecard" acquiredstate = "RemoveCard" />
+        <action name ="txncancelled" acquiredstate = "PaymentModeSelection" />
+        <action name="submit" acquiredstate = "ProcessingPostPayment" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="RemoveCard" file ="pages/CreditCardRemoveCard.xaml" timeout="180">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.CardPaymentStatePresenter" />
+      <actions>
+        <action name="generic" acquiredstate = "GenericCardState" />
+        <action name="submit" acquiredstate = "ProcessingPostPayment" />
+        <action name="enterpin" acquiredstate = "EnterPin" />
+        <action name ="txncancelled" acquiredstate = "PaymentModeSelection" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name="autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <state name ="EnterPin" file ="pages/CreditCardPinEnter.xaml" timeout="180">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.CardPaymentStatePresenter" />
+      <actions>
+        <action name="generic" acquiredstate = "GenericCardState" />
+        <action name="removecard" acquiredstate = "RemoveCard" />
+        <action name ="txncancelled" acquiredstate = "PaymentModeSelection" />
+        <action name="autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!--<state name ="ConfirmPin" file ="pages/CreditCardConfirmPin.xaml" timeout="180">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.CardPaymentStatePresenter" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PaymentModeSelection" />
+        <action name="submit" acquiredstate = "CCPayConfirm" />
+        <action name="autosubmit" acquiredstate = "AutoTransactionSubmit" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    -->
+    <!-- State: CC Receiptnotification-->
+    <!--
+    <state name ="CCPayConfirm" file ="pages/CreditCardPaymentConfirm.xaml" timeout="30">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.FewaPresenterBase" />
+      <actions>
+        <action name="home" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="back" acquiredstate ="PaymentModeSelection" />
+        <action name="submit" acquiredstate = "ProcessingPostPayment" />
+        <action name ="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>-->
+
+    <!-- State: ProcessingPostPayment-->
+    <state name ="ProcessingPostPayment" file ="pages/ProcessingScreen.xaml" timeout="90">
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ProcessingPaymentPresenter" contentkey="mawaqif_txt_pct_commiting_transaction"/>
+      <actions>
+        <action name="submit" acquiredstate = "ReceiptNotification"/>
+        <action name="billerspecificerror" acquiredstate = "ReceiptNotification"/>
+        <action name="error" acquiredstate = "ErrorScreen" />
+        <action name="timeout" acquiredstate = "TimeoutScreen" />
+      </actions>
+    </state>
+
+    <!-- State: ErrorScreen -->
+    <state name ="ErrorScreen" file ="pages/ErrorAndMessageScreen.xaml" timeout="5">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="errorentry_texterror" />
+      <actions>
+        <action name="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="submit" acquiredstate = "MBMEModule" switchmodule="true" />
+      </actions>
+    </state>
+
+    <!-- State: ReceiptNotification-->
+    <state name ="ReceiptNotification" file ="pages/ErrorAndMessageScreen.xaml" >
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ReceiptNotificationPresenter"/>
+      <actions>
+        <action name="submit" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="error" acquiredstate = "ErrorScreen" />
+      </actions>
+    </state>
+
+    <!-- State: ReceiptNotificationOnErrorScreen -->
+    <state name ="ReceiptNotificationOnErrorScreen" file ="pages/ErrorAndMessageScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Mawaqif.Presenters.ReceiptNotificationPresenter" contentkey="mawaqif_txt_vct_failed_transaction"/>
+      <actions>
+        <action name="submit" acquiredstate = "MBMEModule" switchmodule="true" />
+        <action name="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+      </actions>
+    </state>
+
+    <!-- State: TimeoutScreen -->
+    <state name ="TimeoutScreen" file ="pages/ErrorAndMessageScreen.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="Mawaqif_TimeoutScreen" />
+      <actions>
+        <action name="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+      </actions>
+    </state>
+
+    <!-- State: RPTimeoutScreen -->
+    <state name ="RPTimeoutScreen" file ="pages/ErrorAndMessageScreen.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="Mawaqif_TimeoutScreen" />
+      <actions>
+        <action name="timeout" acquiredstate = "ReceiptNotification" />
+      </actions>
+    </state>
+
+    <!--State Topup Biller Error Screen State-->
+    <state name ="TopupBillerErrorScreen" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "ConsumerNumberEntryScreen" />
+      </actions>
+    </state>
+
+    <!--State Violation Pay Get Balance Biller Error Screen State-->
+    <state name ="VpayBillerErrorScreen" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "PVTPaymentSelection" />
+      </actions>
+    </state>
+
+    <!--State Violation Pay Get Balance Biller Error Screen State on Last Try-->
+    <state name ="VpayBillerErrorScreen2" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+      </actions>
+    </state>
+
+    <!--State Violation Pay Post Payment Biller Error Screen State-->
+    <state name ="VpayBillerErrorScreen1" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "ReceiptNotificationOnErrorScreen"/>
+      </actions>
+    </state>
+
+
+    <!--State Renewal Permit Get Balance Biller Error Screen State-->
+    <state name ="RPBillerErrorScreen" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "RPermitNumberSelection" />
+      </actions>
+    </state>
+
+    <!--State Renewal Permit Processing payment Biller Error Screen State-->
+    <state name ="RPBillerErrorScreen1" file ="pages/BillerErrorScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" />
+      <actions>
+        <action name ="timeout" acquiredstate = "ReceiptNotification" />
+      </actions>
+    </state>
+
+    <!--State Renewal Permit Post Payment Biller Error Screen State-->
+    <state name ="RPBillerErrorScreenRetry" file ="pages/ErrorAndMessageScreen.xaml" timeout="5" >
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="mawaqif_txt_error_99"  />
+      <actions>
+        <action name ="timeout" acquiredstate = "MBMEModule" switchmodule="true" />
+      </actions>
+    </state>
+
+    <!-- State: TopUp AutoTransactionSubmit-->
+    <state name ="TopupAutoTransactionSubmit" file ="pages/ErrorAndMessageScreen.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="Mawaqif_AutoSubmit" />
+      <actions>
+        <action name="timeout" acquiredstate = "ProcessingPostPayment" />
+      </actions>
+    </state>
+
+    <!-- State: Renewal Permit AutoTransactionSubmit-->
+    <state name ="RPAutoTransactionSubmit" file ="pages/ErrorAndMessageScreen.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="Mawaqif_AutoSubmit" />
+      <actions>
+        <action name="timeout" acquiredstate = "PermitProcessPaymentScreen" />
+      </actions>
+    </state>
+
+    <!-- State: Violation Pay AutoTransactionSubmit-->
+    <state name ="VpayAutoTransactionSubmit" file ="pages/ErrorAndMessageScreen.xaml">
+      <view name ="MBMEKiosk.Infrastructure.BaseClasses.InfoPresenter" contentkey="Mawaqif_AutoSubmit" />
+      <actions>
+        <action name="timeout" acquiredstate = "PVTProcessPaymentScreen" />
+      </actions>
+    </state>
+    
+  </states>
+</config>
+

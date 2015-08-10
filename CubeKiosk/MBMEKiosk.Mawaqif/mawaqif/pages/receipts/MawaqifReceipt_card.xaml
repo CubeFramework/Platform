@@ -1,0 +1,1050 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        xmlns:my="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        x:Name="LayoutRoot"
+        Width="227"
+        Height="500">
+
+    <Grid.Resources>
+        <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+        <inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+
+
+        <!--<FontFamily x:Key="Mawaqif_ReceiptText_Font">#Helvetica Neue LT Pro-Md</FontFamily>
+        <FontFamily x:Key="Mawaqif_ReceiptText_Font_ar">#GE Dinar One</FontFamily>-->
+        <FontFamily x:Key="Mawaqif_ReceiptText_Font">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/#Helvetica Neue LT Pro-Md</FontFamily>
+        <FontFamily x:Key="Mawaqif_ReceiptText_Font_ar">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/#GE Dinar One</FontFamily>
+
+        <!-- <FontFamily x:Key="Mawaqif_ReceiptText_Font">pack://siteoforigin:,,,/modules/mawaqif/fonts/#Helvetica Neue LT Pro-Md</FontFamily>
+        <FontFamily x:Key="Mawaqif_ReceiptText_Font_ar">pack://siteoforigin:,,,/modules/mawaqif/fonts/#GE Dinar One</FontFamily>-->
+
+
+        <Style x:Key="Mawaqif_Rcpt_Title_TextStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource Mawaqif_ReceiptText_Font}" />
+            <Setter Property="FontSize"
+                    Value="8" />
+            <Setter Property="TextWrapping"
+                    Value="NoWrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+        </Style>
+
+        <Style x:Key="Mawaqif_Rcpt_Title_TextStyle_ar"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource Mawaqif_ReceiptText_Font_ar}" />
+            <Setter Property="FontSize"
+                    Value="8" />
+            <Setter Property="TextWrapping"
+                    Value="NoWrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+        </Style>
+
+
+
+        <Style x:Key="Mawaqif_Rcpt_Dynamic_TextStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource Mawaqif_ReceiptText_Font}" />
+            <Setter Property="FontSize"
+                    Value="8" />
+            <Setter Property="TextWrapping"
+                    Value="NoWrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+        </Style>
+
+
+        <Style x:Key="Mawaqif_Rcpt_Dynamic_TextStyle_ar"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource Mawaqif_ReceiptText_Font_ar}" />
+            <Setter Property="FontSize"
+                    Value="10" />
+            <Setter Property="TextWrapping"
+                    Value="NoWrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+        </Style>
+
+
+        <Style x:Key="Mawaqif_Rcpt_Footer_TextStyle"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource Mawaqif_ReceiptText_Font}" />
+            <Setter Property="FontSize"
+                    Value="8" />
+            <Setter Property="TextWrapping"
+                    Value="Wrap" />
+            <Setter Property="TextAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+        </Style>
+        <Style x:Key="Mawaqif_DynamicTextBG_Style"
+               TargetType="{x:Type Rectangle}">
+            <Setter Property="Fill"
+                    Value="White" />
+            <Setter Property="Stroke"
+                    Value="Black" />
+            <Setter Property="StrokeThickness"
+                    Value="0.5" />
+        </Style>
+
+        <!--Receipt text-->
+        <my:String x:Key="mawaqif_txt_rcpt_branch_code">Branch Code</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_receipt_number">Receipt Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_date_time">Payment Date/Time</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_account_number">Mobile Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_id">Machine ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_location">Machine Location</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_previous_balance">Previous Balance</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_amount_paid">Amount Paid</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_current_balance">Current Balance</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_pvt_current_balance">PVT Balance</my:String>
+		
+		 <my:String x:Key="mawaqif_txt_rcpt_card_number">Card Number</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_branch_code_ar">رمز الفرع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_receipt_number_ar">رقم الايصال</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_date_time_ar">تاريخ / وقت الدفع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_account_number_ar">رقم الهاتف</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_id_ar">رقم الجهاز</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_location_ar">موقع الجهاز</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_previous_balance_ar">الرصيد السابق</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_amount_paid_ar">المبلغ المدفوع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_current_balance_ar">الرصيد الحالي</my:String>
+		
+		 <my:String x:Key="mawaqif_txt_rcpt_card_number_ar">Card Number</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_footer"
+                   xml:space="preserve">Service: m-MAWAQiF top-up&#x0a;Please allow up to 24 hours for your payment to be processed.&#x0a;For payment enquiries please call 0502908147</my:String>
+
+        <!--Violation Receipt text-->
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_number">PVT Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_amount">PVT Amount</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_transaction_number">Transaction Number</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_number_ar">رقم المخالفة</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_ar">قيمة المخالفة</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_transaction_number_ar">رقم العملية</my:String>
+
+
+        <my:String x:Key="mawaqif_txt_rcpt_v_footer"
+                   xml:space="preserve">Service: MAWAQiF PVT&#x0a;Only full payments are allowed.&#x0a;Please allow up to 24 hours for payment to be processed.&#x0a;For payment enquiries please call 0502908147</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_v_failed"
+                   xml:space="preserve">Transaction Failed.&#x0a;Amount paid is less than full cost</my:String>
+
+        <!--Permit receipt text-->
+        <my:String x:Key="mawaqif_txt_rcpt_permit_number">Permit Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_permit_amount">Permit Cost</my:String>
+
+
+        <my:String x:Key="mawaqif_txt_rcpt_permit_number_ar">رقم التصريح</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_permit_amount_ar">قيمة التصريح</my:String>
+
+
+
+        <my:String x:Key="mawaqif_txt_rcpt_p_footer"
+                   xml:space="preserve">Service: MAWAQiF Resident Permit&#x0a;Only full payments are allowed.&#x0a; Please allow up to 24 hours for payment to be processed.&#x0a;For payment enquiries please call 0502908147</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_p_failed"
+                   xml:space="preserve">Transaction Failed.</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_p_failed1"
+                   xml:space="preserve">Amount paid is less than full cost</my:String>
+
+        <!--Receipt text (1)-->
+        <my:String x:Key="mawaqif_txt_rcpt_branch_code_1">Branch Code</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_receipt_number_1">Receipt Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_date_time_1">Date/Time</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_account_number_1">Account Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_id_1">Machine ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_location_1">Machine Location</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_previous_balance_1">Previous Balance</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_amount_paid_1">Amount Paid</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_current_balance_1">Current Balance</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_Merchant_ID_1">Merchant ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Terminal_ID_1">Terminal ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Auth_1">Auth</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_Aid">AID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_AppName">APP NAME</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Tvr">TVR</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Tsi">TSI</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_AcInfo">AC INFO</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Ac">AC</my:String>
+
+
+
+        <!--Receipt text (2)-->
+        <my:String x:Key="mawaqif_txt_rcpt_branch_code_2">رمز الفرع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_receipt_number_2">رقم الايصال</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_date_time_2">تاريخ / وقت الدفع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_account_number_2">رقم الهاتف</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_id_2">رقم الجهاز</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_kiosk_location_2">موقع الجهاز</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_previous_balance_2">الرصيد السابق</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_amount_paid_2">المبلغ المدفوع</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_current_balance_2">الرصيد الحالي</my:String>
+
+
+        <my:String x:Key="mawaqif_txt_rcpt_Merchant_ID_2">Merchant ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Terminal_ID_2">Terminal ID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Auth_2">Auth</my:String>
+
+        <my:String x:Key="mawaqif_txt_rcpt_Aid_2">AID</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_AppName_2">APP NAME</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Tvr_2">TVR</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Tsi_2">TSI</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_AcInfo_2">AC INFO</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_Ac_2">AC</my:String>
+
+
+        <!--Violation Receipt text (1)-->
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_number_1">Ticket Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_1">Ticket Amount</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_transaction_number_1">Transaction Number</my:String>
+
+        <!--Violation Receipt text (2)-->
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_number_2">رقم المخالفة"</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_ticket_amount_2">قيمة المخالفة"</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_transaction_number_2">رقم العملية</my:String>
+
+        <!--Permit receipt text (1)-->
+        <my:String x:Key="mawaqif_txt_rcpt_permit_number_1">Permit Number</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_permit_amount_1">Amount Paid</my:String>
+
+        <!--Permit receipt text (2)-->
+        <my:String x:Key="mawaqif_txt_rcpt_permit_number_2">رقم التصريح"</my:String>
+        <my:String x:Key="mawaqif_txt_rcpt_permit_amount_2">قيمة التصريح"</my:String>
+
+
+        <my:String x:Key="mawaqif_txt_dirham">Dirhams</my:String>
+        <my:String x:Key="mawaqif_txt_dirham_ar">درهم</my:String>
+        <my:String x:Key="mawaqif_txn_fail">Transaction Failed:</my:String>
+        <my:String x:Key="mawaqif_txn_fail_ar">Transaction Failed: (ar)</my:String>
+
+
+    </Grid.Resources>
+
+    <Rectangle Fill="White"
+               Width="227"
+               Height="500"
+               d:IsLocked="True" />
+    <StackPanel Margin="0"
+                Orientation="Vertical"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="200">
+        <Image Height="24"
+               Source="pack://siteoforigin:,,,/modules/mawaqif/Images/mawaqif_rcpt_logo.png"
+               Stretch="Fill"
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Center"
+               Width="80"
+               Margin="0" />
+        <Grid Margin="0,0,-10.29,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.472*" />
+                <RowDefinition Height="0.528*" />
+            </Grid.RowDefinitions>
+            <!--<Grid HorizontalAlignment="Center" Width="210" VerticalAlignment="Top"
+    			Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}" >
+                <TextBlock HorizontalAlignment="Center"
+    				Text="{DynamicResource mawaqif_txn_fail}"
+    				Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+    				Visibility="{Binding Transaction.TransactionFailed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Width="210" VerticalAlignment="Top"
+    			Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=CollapsedVisible, Converter={StaticResource boolToVisibilityConverter}}" >
+                <TextBlock HorizontalAlignment="Center"
+    				Text="{DynamicResource mawaqif_txn_fail_ar}"
+    				Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+    				Visibility="{Binding Transaction.TransactionFailed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}" VerticalAlignment="Top" FontWeight="Bold" FontSize="10"/>
+            </Grid>-->
+            <Grid HorizontalAlignment="Center"
+                  Width="210"
+                  VerticalAlignment="Bottom"
+                  Margin="0"
+                  Grid.Row="1">
+                <TextBlock HorizontalAlignment="Center"
+                           Text="{Binding Transaction.Message}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           VerticalAlignment="Top"
+                           TextWrapping="Wrap"
+                           Width="210"
+                           FontSize="10" />
+            </Grid>
+        </Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_receipt_number}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_receipt_number_ar}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.Id" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+        	Width="200">
+        	<Grid HorizontalAlignment="Center"
+        		VerticalAlignment="Top">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="0.643*" />
+        			<ColumnDefinition Width="0.357*" />
+        		</Grid.ColumnDefinitions>
+        		<TextBlock Text="{DynamicResource mawaqif_txt_rcpt_card_number}"
+        			Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+        			Margin="0,0,2.993,0"
+        			d:LayoutOverrides="Width, Height" />
+        		<TextBlock Text="{DynamicResource mawaqif_txt_rcpt_card_number_ar}"
+        			Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+        			d:LayoutOverrides="Width, Height"
+        			Grid.Column="1"
+        			Margin="1.5,0,0,0" />
+        	</Grid>
+        	<Grid Height="12">
+        		<Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+        			Width="200" />
+        		<TextBlock HorizontalAlignment="Center"
+        			Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+        			VerticalAlignment="Center" Text="{Binding Transaction.CardNo}"/>
+        	</Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200"
+                    Visibility="{Binding Transaction.CardPayment, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Merchant_ID_1}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Merchant_ID_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.MerchantID" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200"
+                    Visibility="{Binding Transaction.CardPayment, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Terminal_ID_1}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Terminal_ID_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Height="12" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.TerminalID" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200"
+                    Visibility="{Binding Transaction.CardPayment, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Auth_1}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Auth_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Margin="0"
+                  VerticalAlignment="Top">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Height="12" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           Margin="0,0,0,1.375"
+                           VerticalAlignment="Bottom">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.AuthNum" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.592*" />
+                    <ColumnDefinition Width="0.408*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_date_time_ar}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="2.258,0,0,0" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_date_time}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,1.827,0"
+                           d:LayoutOverrides="Width, Height" />
+            </Grid>
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Height="12" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.MawaqifDate" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="{Binding Transaction.ReceiptServiceNameKey}"
+                       HorizontalAlignment="Center"
+                       Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                       d:LayoutOverrides="VerticalAlignment" />
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Height="12"
+                           d:LayoutOverrides="Height" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.AccountNumber" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.576*" />
+                    <ColumnDefinition Width="0.424*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_kiosk_id}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,0.296,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_kiosk_id_ar}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="2.295,0,0,0" />
+            </Grid>
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Margin="0"
+                           Height="12" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.MachineId" />                 
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.653*" />
+                    <ColumnDefinition Width="0.347*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_kiosk_location}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,1.594,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_kiosk_location_ar}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="3.183,0,0,0" />
+            </Grid>
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200"
+                           Height="12" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.MachineLocation" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="{Binding Transaction.ServiceAmountLabelText}"
+                       HorizontalAlignment="Center"
+                       Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                       VerticalAlignment="Top" />
+            <Grid VerticalAlignment="Top">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           HorizontalAlignment="Center"
+                           Width="200"
+                           Height="12"
+                           VerticalAlignment="Center" />
+                <Grid x:Name="PB_EN"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="9.434" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="28.453" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,2.894,0"
+                               d:LayoutOverrides="Width">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.BalanceDue" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               Text="{DynamicResource mawaqif_txt_dirham}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Grid.Column="1" />
+                </Grid>
+                <Grid x:Name="PB_AR"
+                      HorizontalAlignment="Center"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=CollapsedVisible, Converter={StaticResource boolToVisibilityConverter}}"
+                      VerticalAlignment="Center"
+                      d:IsHidden="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="27.731" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="6.976" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               HorizontalAlignment="Right"
+                               d:LayoutOverrides="Height"
+                               Grid.Column="1">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.BalanceDue" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle_ar}"
+                               Text="{DynamicResource mawaqif_txt_dirham_ar}"
+                               Margin="0,0,1.468,0"
+                               d:LayoutOverrides="Width, Height" />
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <StackPanel>
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.563*" />
+                    <ColumnDefinition Width="0.437*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_amount_paid}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.278,0"
+                           VerticalAlignment="Top"
+                           d:LayoutOverrides="Width" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_amount_paid_ar}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           VerticalAlignment="Top"
+                           Grid.Column="1"
+                           Margin="1.588,0,0,0"
+                           d:LayoutOverrides="Width" />
+            </Grid>
+            <Grid>
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           HorizontalAlignment="Center"
+                           Width="200"
+                           Height="12"
+                           VerticalAlignment="Bottom" />
+                <Grid x:Name="AP_EN"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="9.434" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="28.453" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,2.894,0"
+                               d:LayoutOverrides="Width">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.AmountPaid" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               Text="{DynamicResource mawaqif_txt_dirham}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Grid.Column="1" />
+                </Grid>
+                <Grid x:Name="AP_AR"
+                      HorizontalAlignment="Center"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=CollapsedVisible, Converter={StaticResource boolToVisibilityConverter}}"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="26.725" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="6.474" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle_ar}"
+                               d:LayoutOverrides="Height"
+                               Grid.Column="1"
+                               HorizontalAlignment="Right">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.AmountPaid" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle_ar}"
+                               Text="{DynamicResource mawaqif_txt_dirham_ar}"
+                               Margin="0,0,1.468,0"
+                               d:LayoutOverrides="Width, Height" />
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.598*" />
+                    <ColumnDefinition Width="0.402*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Transaction.CurrBalanceLabelText}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,3.521,0"
+                           d:LayoutOverrides="Width"
+                           VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Transaction.CurrBalanceLabelTextAR}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width"
+                           Grid.Column="1"
+                           Margin="2.436,0,0,0"
+                           VerticalAlignment="Center" />
+            </Grid>
+            <Grid VerticalAlignment="Bottom">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           HorizontalAlignment="Center"
+                           Width="200"
+                           Height="12"
+                           VerticalAlignment="Center" />
+                <Grid x:Name="AR"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=CollapsedVisible, Converter={StaticResource boolToVisibilityConverter}}"
+                      HorizontalAlignment="Center"
+                      Grid.Row="1"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="19.624" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="5.123" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               HorizontalAlignment="Right"
+                               d:LayoutOverrides="HorizontalAlignment, GridBox"
+                               Grid.Row="1"
+                               VerticalAlignment="Center"
+                               Grid.Column="1">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.AmountDue" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle_ar}"
+                               Text="{DynamicResource mawaqif_txt_dirham_ar}"
+                               Margin="0,0,0.247,0"
+                               d:LayoutOverrides="Width"
+                               VerticalAlignment="Center" />
+                </Grid>
+                <Grid x:Name="EN"
+                      Visibility="{Binding Transaction.ShowTextBlock, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+                      HorizontalAlignment="Center"
+                      Grid.Row="1"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="9.434" />
+                        <ColumnDefinition Width="Auto"
+                                          MinWidth="28.453" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,2.894,0"
+                               d:LayoutOverrides="Width">
+    					<TextBlock.Text>
+    						<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+    							<Binding Path="Transaction.AmountDue" />
+    							<Binding Path="Transaction.SelectedLanguageKey" />
+    						</MultiBinding>
+    					</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                               Text="{DynamicResource mawaqif_txt_dirham}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Grid.Column="1" />
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Aid}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width"
+                           VerticalAlignment="Center" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Aid_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width"
+                           Grid.Column="1"
+                           Margin="1.498,0,0,0"
+                           VerticalAlignment="Center" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.AID" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_AppName}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.992,0"
+                           d:LayoutOverrides="Width"
+                           VerticalAlignment="Top" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_AppName_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width"
+                           Grid.Column="1"
+                           Margin="1.5,0,-0.001,0"
+                           VerticalAlignment="Top" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.AppName" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Tvr}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Tvr_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.TVR" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Tsi}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Tsi_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.TSI" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_AcInfo}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_AcInfo_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.ACInfo" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center"
+                    Width="200">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.643*" />
+                    <ColumnDefinition Width="0.357*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Ac}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle}"
+                           Margin="0,0,2.993,0"
+                           d:LayoutOverrides="Width, Height" />
+                <TextBlock Text="{DynamicResource mawaqif_txt_rcpt_Ac_2}"
+                           Style="{DynamicResource Mawaqif_Rcpt_Title_TextStyle_ar}"
+                           d:LayoutOverrides="Width, Height"
+                           Grid.Column="1"
+                           Margin="1.5,0,0,0" />
+            </Grid>
+            <Grid Height="12">
+                <Rectangle Style="{DynamicResource Mawaqif_DynamicTextBG_Style}"
+                           Width="200" />
+                <TextBlock HorizontalAlignment="Center"
+                           Style="{DynamicResource Mawaqif_Rcpt_Dynamic_TextStyle}"
+                           VerticalAlignment="Center">
+    				<TextBlock.Text>
+    					<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                      Mode="OneWay">
+    						<Binding Path="Transaction.AC" />
+    						<Binding Path="Transaction.SelectedLanguageKey" />
+    					</MultiBinding>
+    				</TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <Grid VerticalAlignment="Top"
+              HorizontalAlignment="Center">
+            <TextBlock Style="{DynamicResource Mawaqif_Rcpt_Footer_TextStyle}"
+                       HorizontalAlignment="Center"
+                       d:LayoutOverrides="Height">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                  Mode="OneWay">
+    					<Binding Path="Transaction.ReceiptFooterKey" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+            </TextBlock>
+            <!--Text="{Binding Transaction.ReceiptFooterKey}"-->
+        </Grid>
+    </StackPanel>
+</Grid>

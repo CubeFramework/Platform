@@ -1,0 +1,49 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="650">
+	<Grid.RowDefinitions>
+		<RowDefinition Height="Auto" MinHeight="70.803"/>
+		<RowDefinition Height="0.426*"/>
+		<RowDefinition Height="Auto" MinHeight="235.95"/>
+		<RowDefinition Height="0.574*"/>
+	</Grid.RowDefinitions>
+	
+	
+	
+    <TextBlock Margin="0,30,0,0"
+               TextWrapping="Wrap"
+               Text="{DynamicResource mawaqif_txt_title_balance_topup_selection}"
+               Style="{DynamicResource Mawaqif_Header_Text_Style}"
+               HorizontalAlignment="Center" VerticalAlignment="Top" />
+    <Grid Margin="0,1.337,0,0" Grid.Row="2" HorizontalAlignment="Center" Width="508.997" Height="232.774" VerticalAlignment="Top">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.505*"/>
+    		<ColumnDefinition Width="0.495*"/>
+    	</Grid.ColumnDefinitions>
+    	<Button Height="150"
+                Command="{Binding Path=SubmitCommand}"
+                CommandParameter="chkbalance"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}" Margin="0,0,0,82.774" HorizontalAlignment="Center" Width="149.878">
+    		<Grid Height="150" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/Images/balance.png" Stretch="Fill" Height="128" VerticalAlignment="Center" HorizontalAlignment="Center" Width="128"/>
+    		</Grid>
+    	</Button>
+    	<Button 
+            Command="{Binding Path=SubmitCommand}"
+            CommandParameter="topup"
+            Height="150" Style="{DynamicResource Mawaqif_Service_BtnStyle}" Margin="0,0,0,82.774" Grid.Column="1" HorizontalAlignment="Center" Width="150.122">
+    		<Grid Margin="0" HorizontalAlignment="Center" Width="150" Height="150" VerticalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/Images/topup.png" Stretch="Fill" Height="128" VerticalAlignment="Center" HorizontalAlignment="Center" Width="128"/>
+    		</Grid>
+    	</Button>
+    	<TextBlock Margin="0,185.893,0,0" TextWrapping="Wrap" Text="{DynamicResource mawaqif_txt_check_balance}" VerticalAlignment="Top" Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}" HorizontalAlignment="Center"/>
+    	<TextBlock Margin="0,185.893,0,0" TextWrapping="Wrap" Text="{DynamicResource mawaqif_txt_topup}" VerticalAlignment="Top" Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}" Grid.Column="1" HorizontalAlignment="Center"/>
+    </Grid>
+</Grid>

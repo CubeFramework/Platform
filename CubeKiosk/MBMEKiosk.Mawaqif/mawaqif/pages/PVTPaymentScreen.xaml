@@ -1,0 +1,802 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="650">
+
+    <Grid.Resources>
+      <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+        <inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+    </Grid.Resources>
+    <TextBlock Margin="0,202.685,0,0"
+               Text="{DynamicResource mawaqif_txt_pm_notes_accepted}"
+               Style="{DynamicResource Mawaqif_Body_BoldText_Style}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
+    <Grid x:Name="notes"
+    	HorizontalAlignment="Center"
+    	Height="80"
+    	Margin="0,242.719,0,0"
+    	VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="1" d:LayoutOverrides="VerticalAlignment">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    		<ColumnDefinition Width="0.125*" />
+    	</Grid.ColumnDefinitions>
+    	<Image Visibility="{Binding IsDenom5Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/5.jpg"
+    		Stretch="Fill"
+    		Margin="5,0"
+    		Width="100"
+    		Height="40"
+    		VerticalAlignment="Top"
+    		d:LayoutOverrides="Height" />
+    	<Image Visibility="{Binding IsDenom10Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/10.jpg"
+    		Stretch="Fill"
+    		Grid.Column="1"
+    		Height="40"
+    		Margin="5,0"
+    		d:LayoutOverrides="Height"
+    		Width="100"
+    		VerticalAlignment="Top" />
+    	<Image Visibility="{Binding IsDenom20Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/20.jpg"
+    		Stretch="Fill"
+    		Grid.Column="2"
+    		Height="40"
+    		Margin="5,0"
+    		d:LayoutOverrides="Height"
+    		Width="100"
+    		VerticalAlignment="Top" />
+    	<Image Visibility="{Binding IsDenom50Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/50.jpg"
+    		Stretch="Fill"
+    		Grid.Column="3"
+    		Height="40"
+    		Margin="5,0"
+    		d:LayoutOverrides="Height"
+    		Width="100"
+    		VerticalAlignment="Top" />
+    	<Image Visibility="{Binding IsDenom100Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/100.jpg"
+    		Stretch="Fill"
+    		Grid.Column="4"
+    		Width="100"
+    		Height="40"
+    		d:LayoutOverrides="HorizontalAlignment, Height"
+    		Margin="5,0"
+    		VerticalAlignment="Top" />
+    	<Image Visibility="{Binding IsDenom200Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/200.jpg"
+    		Stretch="Fill"
+    		Margin="5,0"
+    		Grid.Column="5"
+    		Width="100"
+    		Height="40"
+    		VerticalAlignment="Top"
+    		d:LayoutOverrides="Height" />
+    	<Image Visibility="{Binding IsDenom500Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/500.jpg"
+    		Stretch="Fill"
+    		Grid.Column="6"
+    		Width="100"
+    		Height="40"
+    		Margin="5,0"
+    		VerticalAlignment="Top"
+    		d:LayoutOverrides="Height" />
+    	<Image Visibility="{Binding IsDenom1000Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Source="pack://siteoforigin:,,,/Modules/mawaqif/images/1000.jpg"
+    		Stretch="Fill"
+    		Grid.Column="7"
+    		Height="40"
+    		Margin="5,0"
+    		d:LayoutOverrides="Height"
+    		Width="100"
+    		VerticalAlignment="Top" />
+    	<TextBlock Visibility="{Binding IsDenom5Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		Margin="0"
+    		TextWrapping="Wrap"
+    		Text="05"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}" />
+    	<TextBlock Visibility="{Binding IsDenom10Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="10"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="1" />
+    	<TextBlock Visibility="{Binding IsDenom20Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="20"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="2" />
+    	<TextBlock Visibility="{Binding IsDenom50Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="50"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="3" />
+    	<TextBlock Visibility="{Binding IsDenom100Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="100"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="4" />
+    	<TextBlock Visibility="{Binding IsDenom200Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="200"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="5" />
+    	<TextBlock Visibility="{Binding IsDenom500Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="500"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="6" />
+    	<TextBlock Visibility="{Binding IsDenom1000Allowed, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"
+    		TextWrapping="Wrap"
+    		Text="1000"
+    		VerticalAlignment="Bottom"
+    		HorizontalAlignment="Center"
+    		Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    		Grid.Column="7" />
+    </Grid>
+    <TextBlock Margin="0,276.5,0,0"
+    	TextWrapping="Wrap"
+    	Text="{DynamicResource mawaqif_txt_notes_accepted_max}"
+    	Style="{DynamicResource Mawaqif_Body_WarningText_Style}"
+    	VerticalAlignment="Top"
+               Visibility="{Binding Path=MaxAmountReached, Converter={StaticResource boolToVisibilityConverter}, ConverterParameter='VisibleCollapsed' }" d:LayoutOverrides="GridBox" HorizontalAlignment="Center"/> 
+    <TextBlock Margin="0,338,0,0"
+               TextWrapping="Wrap"
+               Text="{DynamicResource mawaqif_txt_money_help}"
+               Style="{DynamicResource Mawaqif_Body_Text_Style}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top" />
+    <Grid x:Name="Inserted_dirhams" Margin="0,0,0,191.31" HorizontalAlignment="Center" Height="73.432" VerticalAlignment="Bottom">
+    	<TextBlock Text="{DynamicResource mawaqif_txt_pm_money_inserted}"
+    		Style="{DynamicResource Mawaqif_Body_BoldText_Style}"
+    		HorizontalAlignment="Center"
+    		VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
+    	<Grid x:Name="I_dirhams_EN"
+    		HorizontalAlignment="Center" VerticalAlignment="Bottom"
+              Visibility="{Binding Path=ShowGrid, Converter={StaticResource boolToVisibilityConverter}, ConverterParameter='VisibleCollapsed' }">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto"
+    				MinWidth="18.118" />
+    			<ColumnDefinition Width="Auto"
+    				MinWidth="107.075" />
+    		</Grid.ColumnDefinitions>
+    		<TextBlock Margin="2.883,0,0,0"
+    			TextWrapping="Wrap"
+    			Text="{DynamicResource mawaqif_txt_dirham}"
+    			Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    			VerticalAlignment="Top"
+    			d:LayoutOverrides="Width"
+    			Grid.Column="1" />
+            <TextBlock Style="{DynamicResource Mawaqif_Body_Text_Style}"
+                       VerticalAlignment="Top"
+                        
+                       Margin="0,0,2.543,0"
+                       d:LayoutOverrides="Width">
+                <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+                                <Binding Path="TransactionContext.AmountPaid" />
+                                <Binding Path="Transaction.SelectedLanguageKey" />
+                                </MultiBinding>
+								
+                            
+                        </TextBlock.Text>
+
+            </TextBlock>
+    	</Grid>
+        <Grid x:Name="I_dirhams_AR"
+              Margin="0,36.188,0,0"
+              HorizontalAlignment="Center"
+              Visibility="{Binding Path=ShowGrid, Converter={StaticResource boolToVisibilityConverter}, ConverterParameter='CollapsedVisible' }" d:IsHidden="True">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto" MinWidth="64.245"/>
+    			<ColumnDefinition Width="Auto" MinWidth="7.94"/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock
+    			TextWrapping="Wrap"
+    			Text="{DynamicResource mawaqif_txt_dirham}"
+    			Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    			VerticalAlignment="Top" HorizontalAlignment="Left"
+    			/>
+            <TextBlock Style="{DynamicResource Mawaqif_Body_Text_Style}"
+                       VerticalAlignment="Top"
+                       Margin="1.401,0,-0.002,0"
+                       Grid.Column="1"
+                       d:LayoutOverrides="Width">
+                
+                <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+                                <Binding Path="TransactionContext.AmountPaid" />
+                                <Binding Path="Transaction.SelectedLanguageKey" />
+                                </MultiBinding>
+                </TextBlock.Text>
+
+            </TextBlock>
+    	</Grid>
+    </Grid>
+    <Grid x:Name="Updated_dirhams" Margin="0,0,0,102.011" HorizontalAlignment="Center" Height="72.938" VerticalAlignment="Bottom">
+    	<TextBlock
+    		Text="{DynamicResource mawaqif_txt_pm_money_remaining}"
+    		Style="{DynamicResource Mawaqif_Body_BoldText_Style}"
+    		HorizontalAlignment="Center"
+    		VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" />
+    	<Grid x:Name="U_dirhams_EN"
+		Visibility="{Binding Path=ShowGrid, Converter={StaticResource boolToVisibilityConverter}, ConverterParameter='VisibleCollapsed' }"
+    		HorizontalAlignment="Center" VerticalAlignment="Bottom">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto"
+    				MinWidth="18.118" />
+    			<ColumnDefinition Width="Auto"
+    				MinWidth="107.075" />
+    		</Grid.ColumnDefinitions>
+    		<TextBlock Margin="2.883,0,0,0"
+    			TextWrapping="Wrap"
+    			Text="{DynamicResource mawaqif_txt_dirham}"
+    			Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    			VerticalAlignment="Top"
+    			d:LayoutOverrides="Width"
+    			Grid.Column="1" />
+            <TextBlock TextWrapping="Wrap"
+                       Style="{DynamicResource Mawaqif_Body_Text_Style}"
+                       VerticalAlignment="Top"
+                       Margin="0,0,2.543,0"
+                       d:LayoutOverrides="Width">
+                <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+                                <Binding Path="TransactionContext.AmountDue" />
+                                <Binding Path="Transaction.SelectedLanguageKey" />
+                                </MultiBinding>
+                </TextBlock.Text>
+
+            </TextBlock>
+    	</Grid>
+    	<Grid x:Name="U_dirhams_AR" Margin="0,36.188,0,-0.547" HorizontalAlignment="Center" 
+		Visibility="{Binding Path=ShowGrid, Converter={StaticResource boolToVisibilityConverter}, ConverterParameter='CollapsedVisible' }" d:IsHidden="True">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto" MinWidth="64.245"/>
+    			<ColumnDefinition Width="Auto" MinWidth="7.94"/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock
+    			TextWrapping="Wrap"
+    			Text="{DynamicResource mawaqif_txt_dirham}"
+    			Style="{DynamicResource Mawaqif_Body_Text_Style}"
+    			VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock Style="{DynamicResource Mawaqif_Body_Text_Style}"
+                       VerticalAlignment="Top"
+                       Margin="1.401,0,-0.002,0"
+                       Grid.Column="1"
+                       d:LayoutOverrides="Width">
+                                <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource localisedNumberConverter}"
+                                          Mode="OneWay">
+                                <Binding Path="TransactionContext.AmountDue" />
+                                <Binding Path="Transaction.SelectedLanguageKey" />
+                                </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+    	</Grid>
+    </Grid>
+    <Button Content="{DynamicResource mawaqif_txt_complete_transaction}"
+            Command="{Binding Path=SubmitCommand}"
+            CommandParameter="submit"
+            Margin="0,560.152,0,0"
+            Width="400"
+            Style="{DynamicResource Mawaqif_BodyNav3_BtnStyle}"
+            HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" />
+    <Grid x:Name="PVT_Inset_EN"
+    	Visibility="Collapsed"
+    	HorizontalAlignment="Left" Height="227.667" Margin="30,0,0,70.333" VerticalAlignment="Bottom" d:IsHidden="True">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="13.986"/>
+    		<ColumnDefinition Width="Auto" MinWidth="141.414"/>
+    		<ColumnDefinition Width="12.6"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle RadiusY="5" RadiusX="5" StrokeThickness="5" Grid.ColumnSpan="3">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.501,0.459"
+    				StartPoint="0.501,2.181">
+    				<GradientStop Color="#FF46EDFB" />
+    				<GradientStop Color="White"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    		<Rectangle.Stroke>
+    			<LinearGradientBrush EndPoint="0.487,1.963"
+    				StartPoint="0.487,0.013">
+    				<GradientStop Color="#7F1B7B87" />
+    				<GradientStop Color="#7FFFFFFF"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Stroke>
+    	</Rectangle>
+    	<TextBlock
+    		Text="{DynamicResource mawaqif_txt_vd_title_account_details}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		VerticalAlignment="Top" FontSize="20" Margin="0,8,0,0" Grid.Column="1" HorizontalAlignment="Center" />
+    	<Grid Margin="0,37.269,0,17.265" Grid.Column="1" HorizontalAlignment="Center">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition/>
+    			<ColumnDefinition Width="Auto"/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_account_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,0,5,0" FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			FontSize="20" VerticalAlignment="Top" Grid.Column="1" Margin="5,0,0,0">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.AccountNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_issue_date}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,28.8,5,0" FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,28.8,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.IssueDate"
+    						StringFormat="dd/MM/yyyy" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock Text="{DynamicResource mawaqif_txt_vd_plate_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,59.696,5,0"
+    			FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,59.696,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PlateNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_country}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,0,5,60.2" FontSize="20" VerticalAlignment="Bottom"/>
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			FontSize="20" Margin="5,0,0,60.2" VerticalAlignment="Bottom" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.Country"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_category}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,0,5,30" FontSize="20" VerticalAlignment="Bottom" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left" FontSize="20" Margin="5,0,0,30" VerticalAlignment="Bottom" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="Transaction.Category"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_type}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,0,5,0" FontSize="20" VerticalAlignment="Bottom" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" Grid.Column="1" Margin="5,0,0,0" d:LayoutOverrides="HorizontalMargin">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PVTType"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    	</Grid>
+    </Grid>
+    <Grid x:Name="PVT_Inset_AR" 
+    	Visibility="Collapsed"
+    	Height="227.667" Margin="0,0,30,70.333" VerticalAlignment="Bottom" HorizontalAlignment="Right" d:IsHidden="True">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="13.986"/>
+    		<ColumnDefinition Width="Auto" MinWidth="141.414"/>
+    		<ColumnDefinition Width="12.6"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle RadiusY="5" RadiusX="5" StrokeThickness="5" Grid.ColumnSpan="3">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.501,0.459"
+    				StartPoint="0.501,2.181">
+    				<GradientStop Color="#FF46EDFB" />
+    				<GradientStop Color="White"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    		<Rectangle.Stroke>
+    			<LinearGradientBrush EndPoint="0.487,1.963"
+    				StartPoint="0.487,0.013">
+    				<GradientStop Color="#7F1B7B87" />
+    				<GradientStop Color="#7FFFFFFF"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Stroke>
+    	</Rectangle>
+    	<TextBlock
+    		Text="{DynamicResource mawaqif_txt_vd_title_account_details}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		VerticalAlignment="Top" FontSize="20" Margin="0,8,0,0" Grid.Column="1" HorizontalAlignment="Center" />
+    	<Grid Margin="0,37.269,0,17.265" Grid.Column="1" HorizontalAlignment="Center">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto" MinWidth="9.223"/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_account_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,0,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			FontSize="20" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Right" d:LayoutOverrides="HorizontalAlignment">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.AccountNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_issue_date}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,28.8,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,28.8,5,0" FontSize="20" VerticalAlignment="Top">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.IssueDate"
+    						StringFormat="dd/MM/yyyy" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock Text="{DynamicResource mawaqif_txt_vd_plate_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,59.696,0,0"
+    			FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,59.696,5,0" FontSize="20" VerticalAlignment="Top">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PlateNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_country}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,0,0,60.2" FontSize="20" VerticalAlignment="Bottom" Grid.Column="1"/>
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			FontSize="20" Margin="0,0,5,60.2" VerticalAlignment="Bottom" d:LayoutOverrides="HorizontalAlignment">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.Country"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_category}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,0,0,30" FontSize="20" VerticalAlignment="Bottom" Grid.Column="1" d:LayoutOverrides="GridBox" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right" FontSize="20" Margin="0,0,5,30" VerticalAlignment="Bottom">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="Transaction.Category"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_vd_plate_type}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,0,0,0" FontSize="20" VerticalAlignment="Bottom" Grid.Column="1" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}" FontSize="20" VerticalAlignment="Bottom" Margin="0,0,5,0" HorizontalAlignment="Right">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PVTType"/>
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    	</Grid>
+    </Grid>
+    <Grid x:Name="Permit_Inset_EN"
+    	Visibility="Collapsed"
+    	HorizontalAlignment="Left" Height="139.167" Margin="30,0,0,158.833" VerticalAlignment="Bottom" d:IsHidden="True">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="13.986"/>
+    		<ColumnDefinition Width="Auto" MinWidth="141.414"/>
+    		<ColumnDefinition Width="12.6"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle RadiusY="5" RadiusX="5" StrokeThickness="5" Grid.ColumnSpan="3">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.501,0.459"
+    				StartPoint="0.501,2.181">
+    				<GradientStop Color="#FF46EDFB" />
+    				<GradientStop Color="White"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    		<Rectangle.Stroke>
+    			<LinearGradientBrush EndPoint="0.487,1.963"
+    				StartPoint="0.487,0.013">
+    				<GradientStop Color="#7F1B7B87" />
+    				<GradientStop Color="#7FFFFFFF"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Stroke>
+    	</Rectangle>
+    	<TextBlock
+    		Text="{DynamicResource mawaqif_txt_pd_title}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		VerticalAlignment="Top" FontSize="20" Margin="0,8,0,0" Grid.Column="1" HorizontalAlignment="Center" />
+    	<Grid Margin="0,37.269,0,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition/>
+    			<ColumnDefinition Width="Auto"/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock
+    			Text="{DynamicResource mawaqif_txt_pd_permit_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,0,5,0" FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			FontSize="20" VerticalAlignment="Top" Grid.Column="1" Margin="5,0,0,0">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.AccountNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock 
+    			Text="{DynamicResource mawaqif_txt_pd_date_issued}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,28.8,5,0" FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,28.8,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.IssueDate"
+    						StringFormat="dd/MM/yyyy" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock Text="{DynamicResource mawaqif_txt_pd_expiry_date}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,59.696,5,0"
+    			FontSize="20" VerticalAlignment="Top" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,59.696,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PlateNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    	</Grid>
+    </Grid>
+    <Grid x:Name="Permit_Inset_AR" 
+    	Visibility="Collapsed"
+    	Height="139.167" Margin="0,0,30,158.833" VerticalAlignment="Bottom" HorizontalAlignment="Right" d:IsHidden="True">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="13.986"/>
+    		<ColumnDefinition Width="Auto" MinWidth="141.414"/>
+    		<ColumnDefinition Width="12.6"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle RadiusY="5" RadiusX="5" StrokeThickness="5" Grid.ColumnSpan="3">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.501,0.459"
+    				StartPoint="0.501,2.181">
+    				<GradientStop Color="#FF46EDFB" />
+    				<GradientStop Color="White"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    		<Rectangle.Stroke>
+    			<LinearGradientBrush EndPoint="0.487,1.963"
+    				StartPoint="0.487,0.013">
+    				<GradientStop Color="#7F1B7B87" />
+    				<GradientStop Color="#7FFFFFFF"
+    					Offset="1" />
+    			</LinearGradientBrush>
+    		</Rectangle.Stroke>
+    	</Rectangle>
+    	<TextBlock
+    		Text="{DynamicResource mawaqif_txt_pd_title}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		VerticalAlignment="Top" FontSize="20" Margin="0,8,0,0" Grid.Column="1" HorizontalAlignment="Center" />
+    	<Grid Margin="0,37.269,0,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="Auto" MinWidth="9.223"/>
+    			<ColumnDefinition/>
+    		</Grid.ColumnDefinitions>
+    		<TextBlock
+    			Text="{DynamicResource mawaqif_txt_pd_permit_number}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,0,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			FontSize="20" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Right" d:LayoutOverrides="HorizontalAlignment">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.AccountNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock
+    			Text="{DynamicResource mawaqif_txt_pd_date_issued}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,28.8,0,0" FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock 
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,28.8,5,0" FontSize="20" VerticalAlignment="Top">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.IssueDate"
+    						StringFormat="dd/MM/yyyy" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+    			</TextBlock.Text>
+    		</TextBlock>
+    		<TextBlock Text="{DynamicResource mawaqif_txt_pd_expiry_date}"
+    			Style="{DynamicResource Mawaqif_Body_RightAlign_TextStyle}"
+    			HorizontalAlignment="Left"
+    			Margin="5,59.696,0,0"
+    			FontSize="20" VerticalAlignment="Top" Grid.Column="1" />
+    		<TextBlock TextWrapping="Wrap"
+    			Style="{DynamicResource Mawaqif_Body_LefttAlign_TextStyle}"
+    			HorizontalAlignment="Right"
+    			Margin="0,59.696,5,0" FontSize="20" VerticalAlignment="Top">
+    			<TextBlock.Text>
+    				<MultiBinding Converter="{StaticResource localisedNumberConverter}"
+    					Mode="OneWay">
+    					<Binding Path="TransactionContext.PlateNumber" />
+    					<Binding Path="Transaction.SelectedLanguageKey" />
+    				</MultiBinding>
+								
+                            
+    			</TextBlock.Text>
+    		</TextBlock>
+    	</Grid>
+    </Grid>
+    <StackPanel Margin="0,30,0,0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+    	<TextBlock
+    		TextWrapping="Wrap"
+    		Text="{DynamicResource mawaqif_txt_vm_title_money01}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		HorizontalAlignment="Center"
+               />
+    	<TextBlock Foreground="Red"
+    		Text="{DynamicResource mawaqif_txt_vm_title_money02}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		HorizontalAlignment="Center"
+    	/>
+    	<TextBlock
+    		TextWrapping="Wrap"
+    		Text="{DynamicResource mawaqif_txt_vm_title_money03}"
+    		Style="{DynamicResource Mawaqif_Header_Text_Style}"
+    		HorizontalAlignment="Center"
+    	/>
+    </StackPanel>
+</Grid>

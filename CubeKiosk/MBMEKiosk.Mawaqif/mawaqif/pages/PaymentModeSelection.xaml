@@ -1,0 +1,39 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="700">
+    <Grid.Resources>
+     <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+        <inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+    </Grid.Resources>
+	<TextBlock Text="{DynamicResource mawaqif_txt_paymentmethodtext}"
+		VerticalAlignment="Top"
+		HorizontalAlignment="Center"
+		Style="{DynamicResource Mawaqif_Header_Text_Style}" Margin="0,75.927,0,0" />
+	<Grid Height="80" Margin="290,355,300,0" VerticalAlignment="Top">
+		<Button Content="{DynamicResource mawaqif_txt_pm_cash_payment}"
+		IsEnabled="{Binding EnableCashPayment}"
+			Command="{Binding SubmitCommand}"
+			CommandParameter="cash"
+			Style="{DynamicResource Mawaqif_BodyNav2_BtnStyle}"
+			HorizontalAlignment="Left"
+			Width="300"
+			d:LayoutOverrides="HorizontalAlignment" />
+		<Button Content="{DynamicResource mawaqif_txt_pm_card_payment}"
+		IsEnabled="{Binding EnableCardPayment}"
+			Command="{Binding SubmitCommand}"
+                CommandParameter="card"
+                HorizontalAlignment="Right"
+			Width="300"
+			Style="{DynamicResource Mawaqif_BodyNav2_BtnStyle}"
+			d:LayoutOverrides="HorizontalAlignment"
+			/>
+	</Grid>
+</Grid>

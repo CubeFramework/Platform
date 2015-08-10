@@ -1,0 +1,21 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="650">
+
+    <Grid Margin="0,120,0,0">
+
+       <!-- <Rectangle Fill="#B2000000" />-->
+        <TextBlock Text="{Binding Path=ContentText}"
+                   Style="{DynamicResource Mawaqif_ErrorMessage_TextStyle}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+
+    </Grid>
+</Grid>

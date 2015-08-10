@@ -1,0 +1,185 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="650">
+    <Grid.Resources>
+        <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+    </Grid.Resources>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"
+                       MinHeight="120.349" />
+        <RowDefinition Height="0.414*" />
+        <RowDefinition Height="Auto"
+                       MinHeight="421.2" />
+        <RowDefinition Height="0.586*" />
+    </Grid.RowDefinitions>
+    <TextBlock Margin="0,30,0,-0.574"
+               TextWrapping="Wrap"
+               Text="{DynamicResource mawaqif_txt_title_number_entry}"
+               Style="{DynamicResource Mawaqif_Header_Text_Style}"
+               HorizontalAlignment="Center"
+               d:LayoutOverrides="Height" />
+    <Grid Margin="0,3.75,0,6"
+          HorizontalAlignment="Center"
+          Width="375"
+          Grid.Row="2">
+        <Rectangle Width="375"
+                   RadiusY="10"
+                   HorizontalAlignment="Center"
+                   d:LayoutOverrides="Width"
+                   Stroke="{DynamicResource Mawaqif_CalcBg_StrokeStyle}"
+                   RadiusX="10"
+                   Fill="{DynamicResource Mawaqif_CalcBg_fillStyle}">
+            <Rectangle.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Opacity="0.4" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Width="350"
+              HorizontalAlignment="Center"
+              Margin="0,0,0,10"
+              Height="310"
+              VerticalAlignment="Bottom">
+            <Button Content="{DynamicResource mawaqif_txt_number_1}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="1"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_2}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="2"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    Margin="120,0"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_3}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="3"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_4}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="4"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    Margin="0,80,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_5}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="5"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    Margin="120,80,120,0"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_6}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="6"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    Margin="0,80,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top" />
+            <Button Content="{DynamicResource mawaqif_txt_number_7}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="7"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    Margin="0,0,0,80"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" />
+            <Button Content="{DynamicResource mawaqif_txt_number_8}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="8"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    Margin="120,0,120,80"
+                    VerticalAlignment="Bottom" />
+            <Button Content="{DynamicResource mawaqif_txt_number_9}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="9"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    Margin="0,0,0,80"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom" />
+            <Button Height="70"
+                    Command="{Binding Path=BackspaceCommand, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{DynamicResource Mawaqif_Calc_Arrow_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    IsEnabled="True" />
+            <Button Content="{DynamicResource mawaqif_txt_number_0}"
+                    Command="{Binding Path=AddDigitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    CommandParameter="0"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    Margin="120,0"
+                    VerticalAlignment="Bottom" />
+            <Button Content="{DynamicResource mawaqif_txt_number_enter}"
+                    Command="{Binding Path=SubmitCommand, UpdateSourceTrigger=PropertyChanged}"
+                    Height="70"
+                    Style="{DynamicResource Mawaqif_Calc_BtnStyle}"
+                    Width="110"
+                    d:LayoutOverrides="Width"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    />
+        </Grid>
+        <Grid Height="70"
+              Margin="0,10,0,0"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Center"
+              Width="350">
+            <Rectangle RadiusY="10"
+                       Width="350"
+                       HorizontalAlignment="Center"
+                       d:LayoutOverrides="Width"
+                       RadiusX="10"
+                       StrokeThickness="2"
+                       Stroke="{DynamicResource Mawaqif_CalcScreen_BorderFill}"
+                       Fill="{DynamicResource Mawaqif_CalcScreen_Fill}" />
+            <TextBlock  
+                       Style="{DynamicResource Mawaqif_Calc_InputText_Style}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                
+                <TextBlock.Text>
+                            
+                                <Binding Path="CustomerNumber" />
+                                  
+                            
+                        </TextBlock.Text>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Grid>

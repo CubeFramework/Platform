@@ -1,0 +1,647 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d">
+
+
+    <my:String x:Key="mawaqif_txt_back">Back</my:String>
+    <my:String x:Key="mawaqif_txt_exit_en"
+               xml:space="preserve">Main Menu</my:String>
+    <my:String x:Key="mawaqif_txt_exit_ar"
+               xml:space="preserve">القائمة الرئيسية</my:String>
+    <my:String x:Key="mawaqif_txt_language_en">English</my:String>
+    <my:String x:Key="mawaqif_txt_language_ar">العربية</my:String>
+    <my:String x:Key="mawaqif_txt_title_language_selection_en">Please select a language</my:String>
+    <my:String x:Key="mawaqif_txt_title_language_selection_ar"
+               xml:space="preserve">الرجاء اختيار اللغة</my:String>
+    <my:String x:Key="mawaqif_txt_mawaqif">mawaqif</my:String>
+    <my:String x:Key="mawaqif_txt_www">www.</my:String>
+    <my:String x:Key="mawaqif_txt_call">Call</my:String>
+    <my:String x:Key="mawaqif_txt_ae">.ae</my:String>
+    <my:String x:Key="mawaqif_txt_num">800-3009</my:String>
+    <my:String x:Key="errorentry_texterror">We are sorry There is been an internal error</my:String>
+
+
+
+
+    <!--fonts-->
+    <FontFamily x:Key="AllText_AR_FontFamily">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/#GE Dinar One</FontFamily>
+    <FontFamily x:Key="AllText_EN_FontFamily">MBMEKiosk.Mawaqif;component/mawaqif/Fonts/Helvetica Neue LT Pro-Md</FontFamily>
+
+
+    <!--foreground fill for all btns-->
+    <LinearGradientBrush x:Key="BtnForegroundTextFill"
+                         EndPoint="0.5,1"
+                         StartPoint="0.5,0">
+        <GradientStop Color="#FF8B8B8B"
+                      Offset="1" />
+        <GradientStop Color="#FF3D3D3D"
+                      Offset="0" />
+    </LinearGradientBrush>
+
+    <!--foreground fill for all text-->
+    <SolidColorBrush x:Key="TextForeground"
+                     Color="#FF59615E" />
+    <!--Border color for the number entry-->
+    <SolidColorBrush x:Key="ContentBorderBrush"
+                     Color="#FF00B4CB" />
+    <SolidColorBrush x:Key="ContentBorderBrush2"
+                     Color="White" />
+    <SolidColorBrush x:Key="BtnPressedForegroundFill"
+                     Color="Red" />
+
+    <!--language selection btn-->
+    <Style x:Key="Mawaqif_BodyNav_EN_BtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Width="200"
+                          Height="80">
+                        <Rectangle RadiusY="10"
+                                   RadiusX="10"
+                                   Stroke="{DynamicResource BtnForegroundTextFill}"
+                                   StrokeThickness="1">
+                            <Rectangle.Effect>
+                                <DropShadowEffect ShadowDepth="0"
+                                                  Opacity="0.4" />
+                            </Rectangle.Effect>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.607,0.686"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.423,-0.198">
+                                    <GradientStop Color="#FF82C8D4"
+                                                  Offset="1" />
+                                    <GradientStop Color="White" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                            <Rectangle.Style>
+                                <Style TargetType="{x:Type Rectangle}" />
+                            </Rectangle.Style>
+                        </Rectangle>
+                        <Path x:Name="path"
+                              Data="M3.3099882,13.266667 C3.3099882,7.7438192 7.7871407,3.2666667 13.309988,3.2666667 L182.83007,3.2666667 C190.26804,2.2762923 192.58998,4.0828886 194.37992,6.1803335 148.88994,50.816957 64.197274,15.409571 5.2922771,73.209571 3.8485425,71.003908 3.3099882,72.561716 3.3099882,62.523737 3.3099882,52.485757 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="2.331,2.047,4.667,5.667">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.518,0.911"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.404,-0.037">
+                                    <GradientStop Offset="0.995"
+                                                  Color="#00FDFFFF" />
+                                    <GradientStop Color="#FFFDFFFF" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Opacity="1"
+                                          Height="Auto"
+                                          VerticalAlignment="Stretch">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground"
+                                            Value="{DynamicResource BtnForegroundTextFill}" />
+                                    <Setter Property="FontWeight"
+                                            Value="Bold" />
+                                    <Setter Property="TextAlignment"
+                                            Value="Center" />
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontSize"
+                                            Value="35" />
+                                    <Setter Property="FontFamily"
+                                            Value="{DynamicResource AllText_EN_FontFamily}" />
+                                </Style>
+                            </ContentPresenter.Resources>
+                            <ContentPresenter.Effect>
+                                <DropShadowEffect ShadowDepth="0"
+                                                  Color="White"
+                                                  BlurRadius="7" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
+                        <ContentPresenter x:Name="contentPresenter_Pressed"
+                                          Opacity="0"
+                                          Height="Auto"
+                                          VerticalAlignment="Stretch">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground"
+                                            Value="{DynamicResource BtnPressedForegroundFill}" />
+                                    <Setter Property="FontWeight"
+                                            Value="Bold" />
+                                    <Setter Property="TextAlignment"
+                                            Value="Center" />
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontSize"
+                                            Value="35" />
+                                    <Setter Property="FontFamily"
+                                            Value="{DynamicResource AllText_EN_FontFamily}" />
+                                </Style>
+                            </ContentPresenter.Resources>
+                            <ContentPresenter.Effect>
+                                <BlurEffect Radius="4" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
+                        <Path Data="M3.3099882,13.266667 C3.3099882,8.2247207 5.7666484,3.2666667 13.309988,3.2666667 L78.881264,3.2666667 C47.61203,35.554233 34.742065,13.695862 3.3099882,52.809398 3.3099882,42.771418 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="0,36.371,-18.135,-7.369"
+                              HorizontalAlignment="Right"
+                              Width="76.335"
+                              RenderTransformOrigin="0.5,0.5"
+                              Visibility="Visible">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="180" />
+                                    <TranslateTransform X="-19.384999999999991"
+                                                        Y="-8.6329999999999956" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.253,0.636"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="-0.573,-2.097">
+                                    <GradientStop Offset="1" />
+                                    <GradientStop Color="White"
+                                                  Offset="0.101" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True" />
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <Trigger Property="IsMouseOver"
+                                 Value="True" />
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter Property="Opacity"
+                                    TargetName="contentPresenter_Pressed"
+                                    Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Mawaqif_BodyNav_AR_BtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Width="200"
+                          Height="80">
+                        <Rectangle RadiusY="10"
+                                   RadiusX="10"
+                                   Stroke="{DynamicResource BtnForegroundTextFill}"
+                                   StrokeThickness="1">
+                            <Rectangle.Effect>
+                                <DropShadowEffect ShadowDepth="0"
+                                                  Opacity="0.4" />
+                            </Rectangle.Effect>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.607,0.686"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.423,-0.198">
+                                    <GradientStop Color="#FF82C8D4"
+                                                  Offset="1" />
+                                    <GradientStop Color="White" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                            <Rectangle.Style>
+                                <Style TargetType="{x:Type Rectangle}" />
+                            </Rectangle.Style>
+                        </Rectangle>
+                        <Path x:Name="path"
+                              Data="M3.3099882,13.266667 C3.3099882,7.7438192 7.7871407,3.2666667 13.309988,3.2666667 L182.83007,3.2666667 C190.26804,2.2762923 192.58998,4.0828886 194.37992,6.1803335 148.88994,50.816957 64.197274,15.409571 5.2922771,73.209571 3.8485425,71.003908 3.3099882,72.561716 3.3099882,62.523737 3.3099882,52.485757 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="2.331,2.047,4.667,5.667">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.518,0.911"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.404,-0.037">
+                                    <GradientStop Offset="0.995"
+                                                  Color="#00FDFFFF" />
+                                    <GradientStop Color="#FFFDFFFF" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Opacity="1"
+                                          Height="Auto"
+                                          VerticalAlignment="Stretch">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground"
+                                            Value="{DynamicResource BtnForegroundTextFill}" />
+                                    <Setter Property="FontWeight"
+                                            Value="Bold" />
+                                    <Setter Property="TextAlignment"
+                                            Value="Center" />
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontSize"
+                                            Value="35" />
+                                    <Setter Property="FontFamily"
+                                            Value="{DynamicResource AllText_AR_FontFamily}" />
+                                </Style>
+                            </ContentPresenter.Resources>
+                            <ContentPresenter.Effect>
+                                <DropShadowEffect ShadowDepth="0"
+                                                  Color="White"
+                                                  BlurRadius="7" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
+                        <ContentPresenter x:Name="contentPresenter_Pressed"
+                                          Opacity="0"
+                                          Height="Auto"
+                                          VerticalAlignment="Stretch">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground"
+                                            Value="{DynamicResource BtnPressedForegroundFill}" />
+                                    <Setter Property="FontWeight"
+                                            Value="Bold" />
+                                    <Setter Property="TextAlignment"
+                                            Value="Center" />
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontSize"
+                                            Value="35" />
+                                    <Setter Property="FontFamily"
+                                            Value="{DynamicResource AllText_AR_FontFamily}" />
+                                </Style>
+                            </ContentPresenter.Resources>
+                            <ContentPresenter.Effect>
+                                <BlurEffect Radius="4" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
+                        <Path Data="M3.3099882,13.266667 C3.3099882,8.2247207 5.7666484,3.2666667 13.309988,3.2666667 L78.881264,3.2666667 C47.61203,35.554233 34.742065,13.695862 3.3099882,52.809398 3.3099882,42.771418 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="0,36.371,-18.135,-7.369"
+                              HorizontalAlignment="Right"
+                              Width="76.335"
+                              RenderTransformOrigin="0.5,0.5"
+                              Visibility="Visible">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="180" />
+                                    <TranslateTransform X="-19.384999999999991"
+                                                        Y="-8.6329999999999956" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.253,0.636"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="-0.573,-2.097">
+                                    <GradientStop Offset="1" />
+                                    <GradientStop Color="White"
+                                                  Offset="0.101" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True" />
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <Trigger Property="IsMouseOver"
+                                 Value="True" />
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter Property="Opacity"
+                                    TargetName="contentPresenter_Pressed"
+                                    Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <!--Header text styles-->
+    <Style x:Key="Mawaqif_Header_AR_Text_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextForeground}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_AR_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="34" />
+        <Setter Property="TextAlignment"
+                Value="Center" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Opacity="0.2" ShadowDepth="4"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Mawaqif_Header_EN_Text_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextForeground}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_EN_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="34" />
+        <Setter Property="TextAlignment"
+                Value="Center" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Opacity="0.2" ShadowDepth="4"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <!--Text inside button_Arabic-->
+    <Style x:Key="Mawaqif_AR_TextInsideBtn_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource BtnForegroundTextFill}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_AR_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="28" />
+        <Setter Property="TextAlignment"
+                Value="Center" />
+    </Style>
+
+    <Style x:Key="Mawaqif_EN_TextInsideBtn_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource BtnForegroundTextFill}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_EN_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="35" />
+        <Setter Property="TextAlignment"
+                Value="Center" />
+    </Style>
+
+    <!--Footer text styles-->
+    <Style x:Key="Mawaqif_Footer1_AR_Text_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource ContentBorderBrush}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_AR_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="24" />
+    </Style>
+
+
+    <Style x:Key="Mawaqif_Footer1_EN_Text_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource ContentBorderBrush}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_EN_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="24" />
+    </Style>
+
+
+    <Style x:Key="Mawaqif_Footer2_Text_Style"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource ContentBorderBrush2}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_EN_FontFamily}" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="FontSize"
+                Value="24" />
+    </Style>
+
+    <!--style for main menu btn-->
+    <Style x:Key="Mawaqif_Mainmenu_BtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Width="252"
+                          Height="100">
+                        <Rectangle RadiusY="10"
+                                   RadiusX="10"
+                                   Stroke="{DynamicResource BtnForegroundTextFill}"
+                                   StrokeThickness="1">
+                            <Rectangle.Effect>
+                                <DropShadowEffect Opacity="0.4"
+                                                  ShadowDepth="0" />
+                            </Rectangle.Effect>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.607,0.686"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.423,-0.198">
+                                    <GradientStop Color="#FF82C8D4"
+                                                  Offset="1" />
+                                    <GradientStop Color="White" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                            <Rectangle.Style>
+                                <Style TargetType="{x:Type Rectangle}" />
+                            </Rectangle.Style>
+                        </Rectangle>
+                        <Path x:Name="path"
+                              Data="M3.3099882,13.266667 C3.3099882,7.7438192 7.7871407,3.2666667 13.309988,3.2666667 L182.83007,3.2666667 C190.26804,2.2762923 192.58998,4.0828886 194.37992,6.1803335 148.88994,50.816957 64.197274,15.409571 5.2922771,73.209571 3.8485425,71.003908 3.3099882,72.561716 3.3099882,62.523737 3.3099882,52.485757 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="2.331,2.047,4.667,5.667">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.518,0.911"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="0.404,-0.037">
+                                    <GradientStop Offset="0.995"
+                                                  Color="#00FDFFFF" />
+                                    <GradientStop Color="#FFFDFFFF" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Opacity="1"
+                                          Height="Auto"
+                                          VerticalAlignment="Stretch"
+                                          Visibility="Collapsed">
+                            <ContentPresenter.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground"
+                                            Value="{DynamicResource BtnForegroundTextFill}" />
+                                    <Setter Property="FontWeight"
+                                            Value="Bold" />
+                                    <Setter Property="TextAlignment"
+                                            Value="Center" />
+                                    <Setter Property="VerticalAlignment"
+                                            Value="Center" />
+                                    <Setter Property="FontSize"
+                                            Value="35" />
+                                    <Setter Property="FontFamily"
+                                            Value="{DynamicResource AllText_EN_FontFamily}" />
+                                </Style>
+                            </ContentPresenter.Resources>
+                            <ContentPresenter.Effect>
+                                <DropShadowEffect ShadowDepth="0"
+                                                  Color="White"
+                                                  BlurRadius="7" />
+                            </ContentPresenter.Effect>
+                        </ContentPresenter>
+                        <Path Data="M3.3099882,13.266667 C3.3099882,8.2247207 5.7666484,3.2666667 13.309988,3.2666667 L78.881264,3.2666667 C47.61203,35.554233 34.742065,13.695862 3.3099882,52.809398 3.3099882,42.771418 3.3099882,29.68569 3.3099882,13.266667 z"
+                              Stretch="Fill"
+                              StrokeThickness="2"
+                              Margin="0,36.371,-18.135,-7.369"
+                              HorizontalAlignment="Right"
+                              Width="76.335"
+                              RenderTransformOrigin="0.5,0.5"
+                              Visibility="Visible">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="180" />
+                                    <TranslateTransform X="-19.384999999999991"
+                                                        Y="-8.6329999999999956" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.136,0.461"
+                                                     MappingMode="RelativeToBoundingBox"
+                                                     StartPoint="-0.69,-2.272">
+                                    <GradientStop Offset="1" />
+                                    <GradientStop Color="White"
+                                                  Offset="0.101" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <TextBlock Height="Auto"
+                                   Margin="0,5,0,0"
+                                   TextWrapping="Wrap"
+                                   Text="{DynamicResource mawaqif_txt_exit_ar}"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Center"
+                                   Style="{DynamicResource Mawaqif_AR_TextInsideBtn_Style}"
+                                   d:LayoutOverrides="VerticalAlignment" />
+                        <TextBlock Height="Auto"
+                                   Margin="0,0,0,5"
+                                   TextWrapping="Wrap"
+                                   Text="{DynamicResource mawaqif_txt_exit_en}"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   Style="{DynamicResource Mawaqif_EN_TextInsideBtn_Style}" />
+                        <TextBlock x:Name="textBlock"
+                                   Height="Auto"
+                                   Margin="0,5,0,0"
+                                   TextWrapping="Wrap"
+                                   Text="{DynamicResource mawaqif_txt_exit_ar}"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Center"
+                                   Style="{DynamicResource Mawaqif_AR_TextInsideBtn_Style}"
+                                   Foreground="{DynamicResource BtnPressedForegroundFill}"
+                                   Opacity="0">
+							<TextBlock.Effect>
+								<BlurEffect Radius="4" />
+							</TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock x:Name="textBlock1"
+                                   Height="Auto"
+                                   Margin="0,0,0,5"
+                                   TextWrapping="Wrap"
+                                   Text="{DynamicResource mawaqif_txt_exit_en}"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   Style="{DynamicResource Mawaqif_EN_TextInsideBtn_Style}"
+                                   Foreground="{DynamicResource BtnPressedForegroundFill}"
+                                   Opacity="0">
+							<TextBlock.Effect>
+								<BlurEffect Radius="4" />
+							</TextBlock.Effect>
+                        </TextBlock>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True" />
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <Trigger Property="IsMouseOver"
+                                 Value="True" />
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter Property="Opacity"
+                                    TargetName="textBlock"
+                                    Value="1" />
+                            <Setter Property="Opacity"
+                                    TargetName="textBlock1"
+                                    Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="Mawaqif_BottomNav_BigBtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Visibility="Collapsed">
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="Mawaqif_ErrorMessage_TextStyle"
+           TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextForeground}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource AllText_EN_FontFamily}" />
+        <Setter Property="FontSize"
+                Value="25" />
+        <Setter Property="TextWrapping"
+                Value="Wrap" />
+        <Setter Property="TextAlignment"
+                Value="Center" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+    </Style>
+
+</ResourceDictionary>

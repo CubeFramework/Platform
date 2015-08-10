@@ -1,0 +1,94 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="700">
+    <Grid.Resources>
+       <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+    </Grid.Resources>
+	<TextBlock
+		Margin="0,113,0,0"
+		Text="{DynamicResource Mawaqif_PleaseConfirm}"
+		VerticalAlignment="Top"
+		HorizontalAlignment="Center" Style="{DynamicResource Mawaqif_Header_Text_Style}"/>
+	<Grid
+		Margin="0,195,0,0"
+		HorizontalAlignment="Center"
+		Width="350" Height="70" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment">
+		<Rectangle RadiusY="10"
+			Width="350"
+			HorizontalAlignment="Center"
+			d:LayoutOverrides="Width"
+			RadiusX="10"
+			StrokeThickness="2"
+			Stroke="{DynamicResource Mawaqif_CalcScreen_BorderFill}"
+			Fill="{DynamicResource Mawaqif_CalcScreen_Fill}" />
+		<TextBlock Text="{Binding Transaction.PaymentAmount}"
+ 			Style="{DynamicResource Mawaqif_Calc_InputText_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+	</Grid>
+	<StackPanel HorizontalAlignment="Center" Margin="0,294.4,0,0" Orientation="Horizontal" VerticalAlignment="Top">
+		<TextBlock
+			Margin="0,0,0,0"
+			Text="{DynamicResource Mawaqif_Card_Amount}"
+			Style="{DynamicResource Mawaqif_Header_Text_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+		<TextBlock
+			Margin="20,0,0,0"
+			Text="{Binding Transaction.PaymentAmount}"
+			Style="{DynamicResource Mawaqif_Calc_InputText_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+	</StackPanel>
+	<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,267.2" VerticalAlignment="Bottom">
+		<TextBlock
+			Margin="0"
+			Text="{DynamicResource Mawaqif_Card_Fee}"
+			Style="{DynamicResource Mawaqif_Header_Text_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+		<TextBlock
+			Margin="20,0,0,0"
+			Text="{Binding Transaction.AppliedFee}"
+			Style="{DynamicResource Mawaqif_Calc_InputText_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+	</StackPanel>
+	<StackPanel HorizontalAlignment="Center" Margin="0,0,0,188.4" Orientation="Horizontal" VerticalAlignment="Bottom">
+		<TextBlock
+			Margin="0"
+			Text="{DynamicResource Mawaqif_Card_FeeAmount}"
+			Style="{DynamicResource Mawaqif_Header_Text_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+		<TextBlock
+			Margin="20,0"
+			Text="{Binding Transaction.AppliedFeeAmount}"
+			Style="{DynamicResource Mawaqif_Calc_InputText_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+		<TextBlock
+			Margin="10,0,0,0"
+			Text="{DynamicResource Mawaqif_Card_AED}"
+			Style="{DynamicResource Mawaqif_Header_Text_Style}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" />
+	</StackPanel>
+	<Button Content="{DynamicResource Mawaqif_Ok}"
+		Command="{Binding SubmitCommand}"
+		CommandParameter="submit"
+		Margin="0,547.733,0,0"
+		Width="200"
+		Style="{DynamicResource Mawaqif_BodyNav_BtnStyle}"
+		HorizontalAlignment="Center"
+		Height="80.779" VerticalAlignment="Top" />
+    
+</Grid>

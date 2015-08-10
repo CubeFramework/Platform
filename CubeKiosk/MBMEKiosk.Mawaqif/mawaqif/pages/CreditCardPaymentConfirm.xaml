@@ -1,0 +1,30 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="700">
+    <Grid.Resources>
+       <!-- <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />-->
+    </Grid.Resources>
+	<TextBlock
+		Margin="0,265,0,0"
+		Text="{DynamicResource Mawaqif_PaymentAuthorised}"
+		VerticalAlignment="Top"
+		HorizontalAlignment="Center"
+		Style="{DynamicResource Mawaqif_Header_Text_Style}" />
+	<Button Content="{DynamicResource Mawaqif_Ok}"
+		Command="{Binding SubmitCommand}"
+            Visibility="Collapsed"
+		CommandParameter="submit"
+		Margin="0,397.733,0,0"
+		Width="200"
+		Style="{DynamicResource Mawaqif_BodyNav_BtnStyle}"
+		HorizontalAlignment="Center"
+	Height="80.779" VerticalAlignment="Top" />
+</Grid>

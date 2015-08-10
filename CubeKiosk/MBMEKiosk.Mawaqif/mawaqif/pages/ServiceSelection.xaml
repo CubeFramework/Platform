@@ -1,0 +1,224 @@
+﻿<Grid 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:inf="clr-namespace:MBMEKiosk.Infrastructure.Utils;assembly=MBMEKiosk.Infrastructure"
+        mc:Ignorable="d"
+        d:DesignWidth="1280"
+        d:DesignHeight="1024"
+        x:Name="LayoutRoot"
+        Width="1280"
+        Height="650">
+
+    <Grid.Resources>
+        <inf:LocalisedNumberConverter x:Key="localisedNumberConverter" />
+        <inf:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+    </Grid.Resources>
+    
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"
+                       MinHeight="64.136" />
+        <RowDefinition Height="0.357*" />
+        <RowDefinition Height="Auto"
+                       MinHeight="311.636" />
+        <RowDefinition Height="0.643*" />
+    </Grid.RowDefinitions>
+    <TextBlock Margin="0,30,0,0"
+               TextWrapping="Wrap"
+               Text="{DynamicResource mawaqif_txt_title_select_service}"
+               Style="{DynamicResource Mawaqif_Header_Text_Style}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top" />
+    <Grid Name="EN"
+          Visibility="{Binding OrderServiceSelection, ConverterParameter=VisibleCollapsed, Converter={StaticResource boolToVisibilityConverter}}"     
+          Grid.Row="2"
+          Height="275.007"
+          VerticalAlignment="Top"
+          Margin="228.84,36.629,222.84,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="272.16" />
+            <ColumnDefinition Width="283.5" />
+            <ColumnDefinition Width="272.66" />
+        </Grid.ColumnDefinitions>
+      
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="topup"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Width="149.863">
+            <Grid Margin="0"
+                  HorizontalAlignment="Center"
+                  Width="150"
+                  Height="150"
+                  VerticalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/images/account.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Center"
+                       Width="128"
+                       Height="139"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_account}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   Grid.Column="2"
+                   HorizontalAlignment="Center" />
+
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="renewal"
+                IsEnabled="True"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="150"
+                Grid.Column="1">
+            <Grid Margin="0"
+                  Height="150"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="150">
+                <Image Margin="0"
+                       Source="pack://siteoforigin:,,,/Modules/mawaqif/images/permit.png"
+                       Stretch="Fill"
+                       Width="120"
+                       Height="120" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_permit}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center" />
+
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="violationpay"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="149.776">
+            <Grid Height="150"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="150">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/images/fine.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Center"
+                       Width="128"
+                       Height="124"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_fine}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   HorizontalAlignment="Center" />
+
+
+
+    </Grid>
+    <Grid Name="AR" 
+          Visibility="{Binding OrderServiceSelection, ConverterParameter=CollapsedVisible, Converter={StaticResource boolToVisibilityConverter}}"     
+          Grid.Row="2"
+          Height="275.007"
+          VerticalAlignment="Top"
+          Margin="228.84,36.629,222.84,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="272.16" />
+            <ColumnDefinition Width="283.5" />
+            <ColumnDefinition Width="272.66" />
+        </Grid.ColumnDefinitions>
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="topup"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="149.776">
+            <Grid Height="150"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="150">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/images/account.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Center"
+                       Width="128"
+                       Height="124"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_account}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   HorizontalAlignment="Center" />
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="renewal"
+                IsEnabled="True"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Width="150"
+                Grid.Column="1">
+            <Grid Margin="0"
+                  Height="150"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="150">
+                <Image Margin="0"
+                       Source="pack://siteoforigin:,,,/Modules/mawaqif/images/permit.png"
+                       Stretch="Fill"
+                       Width="120"
+                       Height="120" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_permit}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   Grid.Column="1"
+                   HorizontalAlignment="Center" />
+        <Button Command="{Binding Path=SubmitCommand}"
+                CommandParameter="violationpay"
+                Style="{DynamicResource Mawaqif_Service_BtnStyle}"
+                Height="150"
+                VerticalAlignment="Top"
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Width="149.863">
+            <Grid Margin="0"
+                  HorizontalAlignment="Center"
+                  Width="150"
+                  Height="150"
+                  VerticalAlignment="Center">
+                <Image Source="pack://siteoforigin:,,,/Modules/mawaqif/images/fine.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Center"
+                       Width="128"
+                       Height="139"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Button>
+        <TextBlock Margin="0,169.004,0,0"
+                   TextWrapping="Wrap"
+                   Text="{DynamicResource mawaqif_txt_service_fine}"
+                   VerticalAlignment="Top"
+                   Style="{DynamicResource Mawaqif_ServiceTextForBtn_Style}"
+                   Grid.Column="2"
+                   HorizontalAlignment="Center" />
+    </Grid>
+</Grid>
